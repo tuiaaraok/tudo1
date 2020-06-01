@@ -11,7 +11,6 @@ import UIKit
 
 class SpisokTableViewController: UITableViewController {
     
-    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +57,7 @@ class SpisokTableViewController: UITableViewController {
     }
     
 
-    
-    
+
  // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {
         let indexPath = IndexPath(row: sender.tag, section: 0)
@@ -73,9 +71,7 @@ class SpisokTableViewController: UITableViewController {
     }
     
     
-    
-    
-    
+
     // delete func
     
  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -89,8 +85,6 @@ class SpisokTableViewController: UITableViewController {
      return [deleteAction]
  }
     
-    
- 
 
 
    // сброс количества на след день
