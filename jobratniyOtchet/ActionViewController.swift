@@ -13,7 +13,6 @@ class ActionViewController: UIViewController {
     @IBOutlet var taskLabel: UILabel!
     @IBOutlet var numberLabel: UILabel!
     @IBOutlet var doneButton: UIButton!
-    @IBOutlet var ostalosLabel: UILabel!
     
     @IBOutlet var pauseButton: UIButton!
     @IBOutlet var finishButton: UIButton!
@@ -34,7 +33,7 @@ class ActionViewController: UIViewController {
         taskLabel.text = task
        
         finishButton.isHidden = true
-       actionNumber = number
+        actionNumber = number
         numberLabel.text = String(actionNumber)
       
     }
@@ -54,7 +53,6 @@ class ActionViewController: UIViewController {
             StorageManager.editList(tasksLists[actionIndex], newCurrentNum: Int(tasksLists[actionIndex].countOfTask)!, newOverDo: 0)
          performSegue(withIdentifier: "finish", sender: nil)
           
-            
         }
         
         if actionNumber < 0 {
@@ -71,9 +69,8 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func pause() {
-                 currentNum += actionPause
+        currentNum += actionPause
         actionPause = 0
-      
         StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: 0)
         
     }
@@ -83,9 +80,7 @@ class ActionViewController: UIViewController {
     
     @IBAction func pressFinish() {
         performSegue(withIdentifier: "finish", sender: nil)
-               
-                currentNum = Int(tasksLists[actionIndex].countOfTask)! + overDoValue
-               
-               StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: overDoValue)
+        currentNum = Int(tasksLists[actionIndex].countOfTask)! + overDoValue
+        StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: overDoValue)
     }
 }

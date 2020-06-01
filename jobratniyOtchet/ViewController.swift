@@ -31,11 +31,10 @@ class ViewController: UIViewController {
      
          
          if indexP == 0 {
-         saveButton.isHidden = true
-             countLabel.text = "Напишите количество:"
-             taskLabel.text = "Напишите задание:"
+            saveButton.isHidden = true
+            countLabel.text = "Напишите количество:"
+            taskLabel.text = "Напишите задание:"
              
-         
          } else {
              countLabel.text = "Редактировать количество:"
              taskLabel.text = "Редактировать задание:"
@@ -49,13 +48,7 @@ class ViewController: UIViewController {
      }
    
    
-    
-
-    
-    
-    
-    
-    
+ 
     
     @IBAction func addButton() {
         guard Int(countOfTasksTextField.text!) != nil else{showAlert(title: "Ошибка", messge: "напишите число!"); return}
@@ -71,15 +64,15 @@ class ViewController: UIViewController {
 
     @IBAction func save() {
          indexP=0
-               StorageManager.editTaskAndCount(tasksLists[actionIndex], newTask: taskTextField.text!, newCount: countOfTasksTextField.text!)
-        
+        StorageManager.editTaskAndCount(
+            tasksLists[actionIndex],
+            newTask: taskTextField.text!,
+            newCount: countOfTasksTextField.text!
+        )
     }
   
     
-   
-    
-    
-    
+
     
 }
 extension ViewController {

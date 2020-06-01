@@ -12,17 +12,11 @@ import UIKit
 class SpisokTableViewController: UITableViewController {
     
     
-    @IBOutlet var itemBar: UINavigationItem!
-    @IBOutlet var button: UIBarButtonItem!
-    
-    
-
-  
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 52
-         tasksLists = realm.objects(Answer.self)
+        tasksLists = realm.objects(Answer.self)
         
     }
     
@@ -32,10 +26,7 @@ class SpisokTableViewController: UITableViewController {
    
    // сэгвэй назад
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
-     
     tableView.reloadData()
-        
-        
          }
    
     
@@ -54,19 +45,16 @@ class SpisokTableViewController: UITableViewController {
         cell.backgroundColor = #colorLiteral(red: 0.4690965603, green: 0.4316392344, blue: 0.8572700777, alpha: 1)
        
         let cellText = tasksLists[indexPath.row]
-               cell.mainLabel.text = cellText.task
-               cell.numberLabel.text = " \(cellText.currentNumber)/\(Int(cellText.countOfTask)!)"
+        cell.mainLabel.text = cellText.task
+        cell.numberLabel.text = " \(cellText.currentNumber)/\(Int(cellText.countOfTask)!)"
              
-               overDoValue = 0
+        overDoValue = 0
               
-               cell.startButton.tag = indexPath.row
-               cell.startButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
+        cell.startButton.tag = indexPath.row
+        cell.startButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
                
-           
-               
-               return cell
-            
-     
+            return cell
+        
     }
     
 
@@ -78,7 +66,7 @@ class SpisokTableViewController: UITableViewController {
         let next:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! ViewController
         
         glb = indexPath.row
-        indexP=1
+        indexP = 1
 
         self.navigationController?.pushViewController(next, animated: true)
       
@@ -119,26 +107,25 @@ class SpisokTableViewController: UITableViewController {
    // MARK: - Navigation
 
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-               if let indexPath = tableView.indexPathForSelectedRow {
-                   
-                   if segue.identifier == "start2" {
-               let cellText = tasksLists[indexPath.row]
-               let actionVC = segue.destination as! ActionViewController
-               actionVC.task = cellText.task
-                       if Int(cellText.countOfTask)! - cellText.currentNumber < 0 {
-                           actionVC.number = 0
-                       } else {
-                           actionVC.number = Int(cellText.countOfTask)! - cellText.currentNumber
-                       }
-                       actionVC.currentNum = cellText.currentNumber
-                       actionVC.actionIndex = indexPath.row
-                   }}
+    if let indexPath = tableView.indexPathForSelectedRow {
+        if segue.identifier == "start2" {
+            let cellText = tasksLists[indexPath.row]
+            let actionVC = segue.destination as! ActionViewController
+            actionVC.task = cellText.task
+            
+            if Int(cellText.countOfTask)! - cellText.currentNumber < 0 {
+                actionVC.number = 0
+            } else {
+                actionVC.number = Int(cellText.countOfTask)! - cellText.currentNumber
+            }
+            
+            actionVC.currentNum = cellText.currentNumber
+            actionVC.actionIndex = indexPath.row
+                }
+           }
    
+       }
    
-   }
-   
-        
     }
         
     
