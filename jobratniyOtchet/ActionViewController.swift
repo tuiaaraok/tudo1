@@ -69,9 +69,12 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func pause() {
+        
+        
         currentNum += actionPause
         actionPause = 0
         StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: 0)
+            dismiss(animated: true, completion: nil)
         
     }
     
@@ -83,4 +86,5 @@ class ActionViewController: UIViewController {
         currentNum = Int(tasksLists[actionIndex].countOfTask)! + overDoValue
         StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: overDoValue)
     }
+  
 }

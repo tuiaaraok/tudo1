@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+var action = ActionViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -34,6 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+//    func applicationWillTerminate(_ application: UIApplication) {
+//        
+//        if action.actionNumber! > 0 {
+//            action.currentNum += action.actionPause
+//            action.actionPause = 0
+//            StorageManager.editList(tasksLists[action.actionIndex], newCurrentNum: action.currentNum, newOverDo: 0)
+//        } else if action.actionNumber! < 0 {
+//            action.currentNum = Int(tasksLists[action.actionIndex].countOfTask)! + overDoValue
+//            StorageManager.editList(tasksLists[action.actionIndex], newCurrentNum: action.currentNum, newOverDo: overDoValue)
+//        } else {
+//            print("ничибо")
+//        }
+//        }
 }
 
