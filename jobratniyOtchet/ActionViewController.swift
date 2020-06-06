@@ -52,124 +52,7 @@ class ActionViewController: UIViewController {
        
     }
     
-     func createConstraints() {
-       
-        numberLabel.widthAnchor.constraint(
-            equalTo: view.widthAnchor,
-            multiplier: 1/2
-        ).isActive = true
-        
-        numberLabel.heightAnchor.constraint(
-            equalTo: view.heightAnchor,
-            multiplier: 1/4
-        ).isActive = true
-        
-        numberLabel.centerYAnchor.constraint(
-            equalTo: view.centerYAnchor,
-            constant: 30
-        ).isActive = true
-        
-        numberLabel.centerXAnchor.constraint(
-            equalTo: view.centerXAnchor
-        ).isActive = true
-        
-        
-        
-    
-        ostalosLabel.widthAnchor.constraint(
-            equalTo: view.widthAnchor,
-            multiplier: 1/2
-        ).isActive = true
-        
-        ostalosLabel.heightAnchor.constraint(
-            equalTo: view.heightAnchor,
-            multiplier: 1/10
-        ).isActive = true
-        
-        ostalosLabel.centerYAnchor.constraint(
-            equalTo: numberLabel.topAnchor,
-            constant: -50
-        ).isActive = true
-        
-        ostalosLabel.centerXAnchor.constraint(
-            equalTo: view.centerXAnchor
-        ).isActive = true
-        
-        
-        
-        
-        taskLabel.widthAnchor.constraint(
-            equalTo: view.widthAnchor,
-            multiplier: 1
-        ).isActive = true
-        
-        taskLabel.heightAnchor.constraint(
-            equalTo: view.heightAnchor,
-            multiplier: 1/2
-        ).isActive = true
-        taskLabel.centerYAnchor.constraint(
-            equalTo: ostalosLabel.topAnchor,
-            constant:  -55
-        ).isActive = true
-        taskLabel.centerXAnchor.constraint(
-            equalTo: view.centerXAnchor
-        ).isActive = true
-        
-        
 
-        
-        doneButton.widthAnchor.constraint(
-            equalTo: view.widthAnchor,
-            multiplier: 3/5
-        ).isActive = true
-        
-        doneButton.heightAnchor.constraint(
-            equalTo: view.heightAnchor,
-            multiplier: 1/15
-        ).isActive = true
-        
-        doneButton.centerYAnchor.constraint(
-            equalTo: numberLabel.bottomAnchor,
-            constant: 60
-        ).isActive = true
-        doneButton.centerXAnchor.constraint(
-            equalTo: view.centerXAnchor
-        ).isActive = true
-        
-        
-        
-        
-        pauseButton.widthAnchor.constraint(
-            equalTo: view.widthAnchor,
-            multiplier: 3/5
-        ).isActive = true
-        
-        pauseButton.heightAnchor.constraint(
-            equalTo: view.heightAnchor,
-            multiplier: 1/15
-        ).isActive = true
-        pauseButton.centerYAnchor.constraint(
-            equalTo: doneButton.bottomAnchor,
-            constant: 50
-        ).isActive = true
-        pauseButton.centerXAnchor.constraint(
-            equalTo: view.centerXAnchor
-        ).isActive = true
-        
-        
-        
-        
-        finishButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/5).isActive = true
-        finishButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/15).isActive = true
-        finishButton.centerYAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 50).isActive = true
-        finishButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        
-        }
-    
-    
-    
-    
     
     
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
@@ -221,5 +104,122 @@ class ActionViewController: UIViewController {
         currentNum = Int(tasksLists[actionIndex].countOfTask)! + overDoValue
         StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: overDoValue)
     }
+    
+    
+    
+    func createConstraints() {
+          
+           numberLabel.widthAnchor.constraint(
+               equalTo: view.widthAnchor,
+               multiplier: 1/2
+           ).isActive = true
+           
+           numberLabel.heightAnchor.constraint(
+               equalTo: view.heightAnchor,
+               multiplier: 1/4
+           ).isActive = true
+           
+           numberLabel.centerYAnchor.constraint(
+               equalTo: view.centerYAnchor,
+               constant: 30
+           ).isActive = true
+           
+           numberLabel.centerXAnchor.constraint(
+               equalTo: view.centerXAnchor
+           ).isActive = true
+           
+           
+           
+       
+           ostalosLabel.widthAnchor.constraint(
+               equalTo: view.widthAnchor,
+               multiplier: 1/2
+           ).isActive = true
+           
+           ostalosLabel.heightAnchor.constraint(
+               equalTo: view.heightAnchor,
+               multiplier: 1/10
+           ).isActive = true
+           
+           ostalosLabel.centerYAnchor.constraint(
+               equalTo: numberLabel.topAnchor,
+               constant: -50
+           ).isActive = true
+           
+           ostalosLabel.centerXAnchor.constraint(
+               equalTo: view.centerXAnchor
+           ).isActive = true
+           
+           
+           
+           
+           taskLabel.widthAnchor.constraint(
+               equalTo: view.widthAnchor,
+               multiplier: 1
+           ).isActive = true
+           
+           taskLabel.heightAnchor.constraint(
+               equalTo: view.heightAnchor,
+               multiplier: 1/2
+           ).isActive = true
+           taskLabel.centerYAnchor.constraint(
+               equalTo: ostalosLabel.topAnchor,
+               constant:  -55
+           ).isActive = true
+           taskLabel.centerXAnchor.constraint(
+               equalTo: view.centerXAnchor
+           ).isActive = true
+           
+           
+
+           
+           doneButton.widthAnchor.constraint(
+               equalTo: view.widthAnchor,
+               multiplier: 3/5
+           ).isActive = true
+           
+           doneButton.heightAnchor.constraint(
+               equalTo: view.heightAnchor,
+               multiplier: 1/15
+           ).isActive = true
+           
+           doneButton.centerYAnchor.constraint(
+               equalTo: numberLabel.bottomAnchor,
+               constant: 60
+           ).isActive = true
+           doneButton.centerXAnchor.constraint(
+               equalTo: view.centerXAnchor
+           ).isActive = true
+           
+           
+           
+           
+           pauseButton.widthAnchor.constraint(
+               equalTo: view.widthAnchor,
+               multiplier: 3/5
+           ).isActive = true
+           
+           pauseButton.heightAnchor.constraint(
+               equalTo: view.heightAnchor,
+               multiplier: 1/15
+           ).isActive = true
+           pauseButton.centerYAnchor.constraint(
+               equalTo: doneButton.bottomAnchor,
+               constant: 50
+           ).isActive = true
+           pauseButton.centerXAnchor.constraint(
+               equalTo: view.centerXAnchor
+           ).isActive = true
+           
+           
+           
+           
+           finishButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/5).isActive = true
+           finishButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/15).isActive = true
+           finishButton.centerYAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 50).isActive = true
+           finishButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+           
+           
+           }
   
 }

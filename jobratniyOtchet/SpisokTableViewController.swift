@@ -16,6 +16,8 @@ class SpisokTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 52
         tasksLists = realm.objects(Answer.self)
+        
+    
     }
     
     
