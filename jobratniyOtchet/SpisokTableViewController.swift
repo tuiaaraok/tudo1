@@ -50,8 +50,8 @@ class SpisokTableViewController: UITableViewController {
              
         overDoValue = 0
               
-        cell.startButton.tag = indexPath.row
-        cell.startButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
+        cell.editButton.tag = indexPath.row
+        cell.editButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
                
             return cell
         

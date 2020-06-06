@@ -41,17 +41,25 @@
                                             <rect key="frame" x="13" y="7" width="35" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-F8-fEv">
-                                            <rect key="frame" x="364" y="15" width="30" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-F8-fEv">
+                                            <rect key="frame" x="364" y="14.666666666666664" width="30" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="QZh-0i-n5o"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="23" id="cYA-Hz-23l"/>
+                                            </constraints>
                                             <state key="normal" title="Button" image="edit"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BEu-F8-fEv" firstAttribute="trailing" secondItem="ViD-Zl-mDb" secondAttribute="trailingMargin" id="Ozw-zC-pkI"/>
+                                        <constraint firstItem="BEu-F8-fEv" firstAttribute="centerY" secondItem="ViD-Zl-mDb" secondAttribute="centerY" id="heS-3I-q5d"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="editButton" destination="BEu-F8-fEv" id="Spp-pT-4sG"/>
                                     <outlet property="mainLabel" destination="Dl0-Au-3Xh" id="BVW-6S-JZC"/>
                                     <outlet property="numberLabel" destination="Jzw-AG-L53" id="Tox-z1-w3G"/>
-                                    <outlet property="startButton" destination="BEu-F8-fEv" id="Spp-pT-4sG"/>
+                                    <outlet property="strelkaImageView" destination="w6i-Z2-wB9" id="bFB-AE-Gar"/>
                                     <segue destination="dWT-sj-a7q" kind="presentation" identifier="start2" id="FG4-cb-F2e"/>
                                 </connections>
                             </tableViewCell>
@@ -80,7 +88,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMq-Gx-gId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-912" y="42"/>
+            <point key="canvasLocation" x="-913.04347826086962" y="41.517857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fkt-jE-LOm">
@@ -336,6 +344,6 @@
         <image name="pause.fill" catalog="system" width="58" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2ql-dc-Tn0"/>
+        <segue reference="FG4-cb-F2e"/>
     </inferredMetricsTieBreakers>
 </document>
