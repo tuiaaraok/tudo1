@@ -29,7 +29,6 @@ class ViewController: UIViewController {
          super.viewDidLoad()
          actionIndex = glb
      
-         
          if indexP == 0 {
             saveButton.isHidden = true
             countLabel.text = "Напишите количество:"
@@ -43,8 +42,8 @@ class ViewController: UIViewController {
              taskTextField.text = tasksLists[actionIndex].task
              countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
              indexP = 0
-             
          }
+    
     taskLabel.translatesAutoresizingMaskIntoConstraints = false
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     countLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -52,14 +51,26 @@ class ViewController: UIViewController {
     saveButton.translatesAutoresizingMaskIntoConstraints = false
     addButtonOut.translatesAutoresizingMaskIntoConstraints = false
     
-    
     createConstraints()
+    
+    taskTextField.delegate = self
+   
     
      }
    
-   
- 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else {
+            return false
+        }
+        let updateText = currentText.replacingCharacters(in: stringRange, with: string)
+        return updateText.count<35
+    }
     
+    
+    
+    
+   
     @IBAction func addButton() {
         guard Int(countOfTasksTextField.text!) != nil else{showAlert(title: "Ошибка", messge: "напишите число!"); return}
               
@@ -81,6 +92,14 @@ class ViewController: UIViewController {
         )
     }
   
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - Constraints
     
     func createConstraints() {
         
@@ -216,10 +235,7 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-
-    
+    // MARK: - Extentions
 }
 extension ViewController {
     private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
@@ -237,5 +253,15 @@ extension ViewController: UITextFieldDelegate {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.taskTextField {
+               textField.resignFirstResponder()
+            self.countOfTasksTextField.becomeFirstResponder()
+        } 
+            //else скрыть клавиатуру
+        
+           return true
+       }
 }
 

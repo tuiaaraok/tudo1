@@ -27,55 +27,48 @@ class TableViewCell: UITableViewCell {
         createConstraints()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
     
     func createConstraints() {
         
-        
         strelkaImageView.widthAnchor.constraint(
-        equalTo: contentView.widthAnchor,
-        multiplier: 2/3
-        ).isActive = true
-                    
-        strelkaImageView.heightAnchor.constraint(
-        equalTo: contentView.heightAnchor,
-        multiplier: 2/3
-        ).isActive = true
-                    
-        strelkaImageView.centerYAnchor.constraint(
-        equalTo: contentView.centerYAnchor
-        ).isActive = true
-                    
-         strelkaImageView.centerXAnchor.constraint(
-        equalTo: contentView.leftAnchor,
-        constant: 27
-            
-        ).isActive = true
-        
-        
-        
-        
-           
-        mainLabel.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
-        multiplier: 4/7
+            multiplier: 1/12
         ).isActive = true
+
+        strelkaImageView.heightAnchor.constraint(
+            equalTo: contentView.heightAnchor,
+            multiplier: 2/3
+        ).isActive = true
+
+        strelkaImageView.centerYAnchor.constraint(
+            equalTo: contentView.centerYAnchor
+        ).isActive = true
+
+         strelkaImageView.centerXAnchor.constraint(
+            equalTo: contentView.leftAnchor,
+            constant: 27
+        ).isActive = true
+        
+        
+        
                     
         mainLabel.heightAnchor.constraint(
-        equalTo: contentView.heightAnchor
+            equalTo: contentView.heightAnchor
         ).isActive = true
                     
         mainLabel.centerYAnchor.constraint(
-        equalTo: contentView.centerYAnchor
+            equalTo: contentView.centerYAnchor
         ).isActive = true
                     
-        mainLabel.centerXAnchor.constraint(
+        mainLabel.leftAnchor.constraint(
             equalTo: strelkaImageView.rightAnchor,
-            constant: 5
+            constant: 10
+        ).isActive = true
+        
+        mainLabel.rightAnchor.constraint(
+            equalTo: numberLabel.leftAnchor,
+            constant: -2
         ).isActive = true
         
         
@@ -83,60 +76,48 @@ class TableViewCell: UITableViewCell {
         
         numberLabel.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
-        multiplier: 4/30
+            multiplier: 4/30
         ).isActive = true
                     
         numberLabel.heightAnchor.constraint(
-        equalTo: contentView.heightAnchor,
-        multiplier: 4/5
+            equalTo: contentView.heightAnchor,
+            multiplier: 4/5
         ).isActive = true
                     
         numberLabel.centerYAnchor.constraint(
-        equalTo: contentView.centerYAnchor
-        ).isActive = true
-                    
-        numberLabel.centerXAnchor.constraint(
-        equalTo: mainLabel.rightAnchor,
-        constant: 20
+            equalTo: contentView.centerYAnchor
         ).isActive = true
         
-//        numberLabel.rightAnchor.constraint(
-//        equalTo: editButton.leftAnchor,
-//        constant: 4
-//        ).isActive = true
-        
+        numberLabel.rightAnchor.constraint(
+            equalTo: editButton.leftAnchor,
+            constant: -10
+        ).isActive = true
         
         
         
         
         editButton.widthAnchor.constraint(
-        equalTo: contentView.heightAnchor,
-        multiplier: 5/10
+            equalTo: contentView.heightAnchor,
+            multiplier: 5/10
         ).isActive = true
 
         editButton.heightAnchor.constraint(
             equalTo: contentView.heightAnchor,
-        multiplier: 4/10
+            multiplier: 4/10
         ).isActive = true
 
         editButton.centerYAnchor.constraint(
-        equalTo: contentView.centerYAnchor
+            equalTo: contentView.centerYAnchor
         ).isActive = true
-
-//        editButton.centerXAnchor.constraint(
-//        equalTo: numberLabel.rightAnchor//,
-//       // constant:
-//        ).isActive = true
         
         editButton.leftAnchor.constraint(
             equalTo: numberLabel.rightAnchor,
-            constant: 3)
+            constant: 3).isActive = true
         
         editButton.rightAnchor.constraint(
-        equalTo: contentView.rightAnchor,
-        constant: -16
+            equalTo: contentView.rightAnchor,
+            constant: -16
         ).isActive = true
-               
-    
-}
+        
+    }
 }

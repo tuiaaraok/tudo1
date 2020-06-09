@@ -14,10 +14,11 @@ class SpisokTableViewController: UITableViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.rowHeight = 52
         tasksLists = realm.objects(Answer.self)
-        
-    
+        getCurrentDay()
+
     }
     
     
@@ -26,22 +27,18 @@ class SpisokTableViewController: UITableViewController {
    
    // сэгвэй назад
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
-    tableView.reloadData()
+        tableView.reloadData()
          }
    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return tasksLists.count
-        
     }
 
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
       
-        
         cell.backgroundColor = #colorLiteral(red: 0.4690965603, green: 0.4316392344, blue: 0.8572700777, alpha: 1)
        
         let cellText = tasksLists[indexPath.row]
@@ -88,16 +85,25 @@ class SpisokTableViewController: UITableViewController {
     
 
 
-   // сброс количества на след день
+   // сброс количества
    @IBAction func restartButtonPressed(_ sender: Any) {
        for i in tasksLists {
            StorageManager.editRestart(i)
            tableView.reloadData()
        }
    }
+    
+    
+    func getCurrentDay () {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM, dd, yyyy"
+        let str = formatter.string(from: Date())
+        print(str)
+        
+    }
+    
+    
    
-
-
    
    // MARK: - Navigation
 

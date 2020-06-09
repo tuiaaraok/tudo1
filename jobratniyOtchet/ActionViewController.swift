@@ -31,7 +31,6 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        
         taskLabel.translatesAutoresizingMaskIntoConstraints = false
         numberLabel.translatesAutoresizingMaskIntoConstraints = false
         ostalosLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -39,8 +38,6 @@ class ActionViewController: UIViewController {
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
         finishButton.translatesAutoresizingMaskIntoConstraints = false
        
-        
-        
         doneButton.layer.cornerRadius = doneButton.frame.width / 35
         finishButton.isHidden = true
         
@@ -54,11 +51,9 @@ class ActionViewController: UIViewController {
     
 
     
-    
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
         finishButton.isHidden = false
         pauseButton.isHidden = true
-    
     }
     
     @IBAction func pressButton() {
@@ -80,24 +75,20 @@ class ActionViewController: UIViewController {
             overDoValue+=1
         }
         
- 
-  
     }
     
     
     
     @IBAction func pause() {
         
-        
         currentNum += actionPause
         actionPause = 0
         StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: 0)
-            dismiss(animated: true, completion: nil)
+            //dismiss(animated: true, completion: nil)
         
     }
     
-    
- 
+
     
     @IBAction func pressFinish() {
         performSegue(withIdentifier: "finish", sender: nil)
@@ -175,7 +166,7 @@ class ActionViewController: UIViewController {
            
            doneButton.widthAnchor.constraint(
                equalTo: view.widthAnchor,
-               multiplier: 3/5
+               multiplier: 4/7
            ).isActive = true
            
            doneButton.heightAnchor.constraint(
@@ -214,12 +205,21 @@ class ActionViewController: UIViewController {
            
            
            
-           finishButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/5).isActive = true
-           finishButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/15).isActive = true
-           finishButton.centerYAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 50).isActive = true
-           finishButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-           
-           
-           }
+           finishButton.widthAnchor.constraint(
+            equalTo: view.widthAnchor,
+            multiplier: 3/5
+           ).isActive = true
+           finishButton.heightAnchor.constraint(
+            equalTo: view.heightAnchor,
+            multiplier: 1/15
+           ).isActive = true
+           finishButton.centerYAnchor.constraint(
+            equalTo: doneButton.bottomAnchor,
+            constant: 50
+           ).isActive = true
+           finishButton.centerXAnchor.constraint(
+            equalTo: view.centerXAnchor
+           ).isActive = true
+    }
   
 }
