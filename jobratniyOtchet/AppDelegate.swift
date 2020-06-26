@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func scheduleNotification (notificationType: String) { // настраиваем уведомление
         let content = UNMutableNotificationContent()
         
-        content.title = notificationType
+
         content.body = "Пора выполнить ежедневные задания!"
         content.sound = UNNotificationSound.default
    

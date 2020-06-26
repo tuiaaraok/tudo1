@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "631417C3245C87D100950D5E"
-               BuildableName = "jobratniyOtchet.app"
+               BuildableName = "TUDO.app"
                BlueprintName = "jobratniyOtchet"
                ReferencedContainer = "container:jobratniyOtchet.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "631417C3245C87D100950D5E"
-            BuildableName = "jobratniyOtchet.app"
+            BuildableName = "TUDO.app"
             BlueprintName = "jobratniyOtchet"
             ReferencedContainer = "container:jobratniyOtchet.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "631417C3245C87D100950D5E"
-            BuildableName = "jobratniyOtchet.app"
+            BuildableName = "TUDO.app"
             BlueprintName = "jobratniyOtchet"
             ReferencedContainer = "container:jobratniyOtchet.xcodeproj">
          </BuildableReference>
