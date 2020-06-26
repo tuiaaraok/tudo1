@@ -10,7 +10,10 @@ import UIKit
 
 
 class SpisokTableViewController: UITableViewController {
+    let date = Date()
+    let calendar = Calendar.current
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +21,12 @@ class SpisokTableViewController: UITableViewController {
         tableView.rowHeight = 52
         tasksLists = realm.objects(Answer.self)
         getCurrentDay()
+        print(date)
+   
 
     }
+    
+
     
     
     // MARK: - Table view data source
@@ -54,6 +61,9 @@ class SpisokTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appDelegate?.scheduleNotification(notificationType: "Local notification")
+    }
 
 
  // это для перехода на редактирование
