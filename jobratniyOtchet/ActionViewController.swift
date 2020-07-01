@@ -24,7 +24,7 @@ class ActionViewController: UIViewController {
     var currentNum: Int!
     var actionNumber: Int!
    
-    var actionIndex: Int!
+    var indexPath: IndexPath!
     var actionPause = 0
     
 
@@ -54,6 +54,7 @@ class ActionViewController: UIViewController {
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
         finishButton.isHidden = false
         pauseButton.isHidden = true
+        
     }
     
     @IBAction func pressButton() {
@@ -63,7 +64,7 @@ class ActionViewController: UIViewController {
         actionPause += 1
         
         if actionNumber == 0 {
-            StorageManager.editList(tasksLists[actionIndex], newCurrentNum: Int(tasksLists[actionIndex].countOfTask)!, newOverDo: 0)
+            StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: Int(tasksLists[indexPath.row].countOfTask)!, newOverDo: 0)
          performSegue(withIdentifier: "finish", sender: nil)
           
         }
@@ -80,20 +81,24 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func pause() {
-        
+       
         currentNum += actionPause
         actionPause = 0
-        StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: 0)
+        StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: currentNum, newOverDo: 0)
             //dismiss(animated: true, completion: nil)
-        
+         performSegue(withIdentifier: "finish", sender: nil)
     }
     
 
     
     @IBAction func pressFinish() {
+      
+        currentNum = Int(tasksLists[indexPath.row].countOfTask)! + overDoValue
+        StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: currentNum, newOverDo: overDoValue)
+        
+        print("kmkkk \(currentNum)")
         performSegue(withIdentifier: "finish", sender: nil)
-        currentNum = Int(tasksLists[actionIndex].countOfTask)! + overDoValue
-        StorageManager.editList(tasksLists[actionIndex], newCurrentNum: currentNum, newOverDo: overDoValue)
+        
     }
     
     
@@ -222,4 +227,11 @@ class ActionViewController: UIViewController {
            ).isActive = true
     }
   
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "finish" else { return }
+        let finishVC = segue.destination as! FinishViewController
+        finishVC.indexPath = indexPath
+}
 }

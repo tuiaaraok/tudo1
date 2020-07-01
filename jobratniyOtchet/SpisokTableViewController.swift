@@ -50,7 +50,7 @@ class SpisokTableViewController: UITableViewController {
        
         let cellText = tasksLists[indexPath.row]
         cell.mainLabel.text = cellText.task
-        cell.numberLabel.text = " \(cellText.currentNumber)/\(Int(cellText.countOfTask)!)"
+        cell.numberLabel.text = " \(cellText.currentNumber)/\(cellText.countOfTask)"
              
         overDoValue = 0
               
@@ -131,7 +131,7 @@ class SpisokTableViewController: UITableViewController {
             }
             
             actionVC.currentNum = cellText.currentNumber
-            actionVC.actionIndex = indexPath.row
+            actionVC.indexPath = indexPath
                 }
            }
    

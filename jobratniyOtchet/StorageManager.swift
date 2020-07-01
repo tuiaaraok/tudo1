@@ -23,7 +23,7 @@ class StorageManager {
     static func editList(_ tasksList: Answer, newCurrentNum: Int, newOverDo: Int ) {
         try! realm.write {
             tasksList.currentNumber = newCurrentNum
-            tasksList.overDo = tasksList.overDo + newOverDo
+         //   tasksList.overDo = tasksList.overDo + newOverDo
         }
     }
     
