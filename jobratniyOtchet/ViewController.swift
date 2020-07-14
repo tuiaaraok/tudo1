@@ -73,6 +73,7 @@ class ViewController: UIViewController {
    
     @IBAction func addButton() {
         guard Int(countOfTasksTextField.text!) != nil else{showAlert(title: "Ошибка", messge: "напишите число!"); return}
+        guard taskTextField.text?.isEmpty == false  else { showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
               
              let task = Answer()
               task.countOfTask = countOfTasksTextField.text!

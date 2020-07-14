@@ -65,6 +65,7 @@ class SpisokTableViewController: UITableViewController {
         appDelegate?.scheduleNotification(notificationType: "Local notification")
     }
 
+    
 
  // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {

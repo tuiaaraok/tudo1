@@ -52,8 +52,8 @@ class ActionViewController: UIViewController {
 
     
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
-        finishButton.isHidden = false
-        pauseButton.isHidden = true
+        finishButton.isHidden = true
+        pauseButton.isHidden = false
         
     }
     
