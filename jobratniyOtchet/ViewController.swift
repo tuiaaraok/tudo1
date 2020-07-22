@@ -29,7 +29,7 @@ class ViewController: UIViewController {
          super.viewDidLoad()
          actionIndex = glb
      
-         if indexP == 0 {
+         if actionIndex == nil {
             saveButton.isHidden = true
             countLabel.text = "Напишите количество:"
             taskLabel.text = "Напишите задание:"
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
              saveButton.isHidden = false
              taskTextField.text = tasksLists[actionIndex].task
              countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
-             indexP = 0
+         
          }
     
     taskLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func save() {
-         indexP=0
+      
         StorageManager.editTaskAndCount(
             tasksLists[actionIndex],
             newTask: taskTextField.text!,

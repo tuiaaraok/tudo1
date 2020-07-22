@@ -73,7 +73,7 @@ class SpisokTableViewController: UITableViewController {
         let next:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! ViewController
         
         glb = indexPath.row
-        indexP = 1
+     
 
         self.navigationController?.pushViewController(next, animated: true)
       
