@@ -39,7 +39,6 @@ class StorageManager {
     static func editRestart( _ tasksList: Answer) {
         try! realm.write {
             tasksList.currentNumber = 0
-
         }
     }
     

@@ -23,11 +23,9 @@ class ActionViewController: UIViewController {
     var number: Int!
     var currentNum: Int!
     var actionNumber: Int!
-   
     var indexPath: IndexPath!
     var actionPause = 0
     
-
     override func viewDidLoad() {
          super.viewDidLoad()
         
@@ -49,12 +47,10 @@ class ActionViewController: UIViewController {
        
     }
     
-
-    
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
+        
         finishButton.isHidden = true
         pauseButton.isHidden = false
-        
     }
     
     @IBAction func pressButton() {
@@ -75,34 +71,30 @@ class ActionViewController: UIViewController {
             numberLabel.textColor = .cyan
             overDoValue+=1
         }
-        
     }
-    
-    
     
     @IBAction func pause() {
        
         currentNum += actionPause
         actionPause = 0
-        StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: currentNum, newOverDo: 0)
-            //dismiss(animated: true, completion: nil)
+        StorageManager.editList(tasksLists[indexPath.row],
+                                newCurrentNum: currentNum,
+                                newOverDo: 0)
+                                         
          performSegue(withIdentifier: "finish", sender: nil)
     }
-    
-
     
     @IBAction func pressFinish() {
       
         currentNum = Int(tasksLists[indexPath.row].countOfTask)! + overDoValue
-        StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: currentNum, newOverDo: overDoValue)
+        StorageManager.editList(tasksLists[indexPath.row],
+                                newCurrentNum: currentNum,
+                                newOverDo: overDoValue)
         
-        print("kmkkk \(currentNum)")
         performSegue(withIdentifier: "finish", sender: nil)
-        
     }
     
-    
-    
+
     func createConstraints() {
           
            numberLabel.widthAnchor.constraint(
@@ -124,9 +116,7 @@ class ActionViewController: UIViewController {
                equalTo: view.centerXAnchor
            ).isActive = true
            
-           
-           
-       
+
            ostalosLabel.widthAnchor.constraint(
                equalTo: view.widthAnchor,
                multiplier: 1/2
@@ -146,9 +136,7 @@ class ActionViewController: UIViewController {
                equalTo: view.centerXAnchor
            ).isActive = true
            
-           
-           
-           
+
            taskLabel.widthAnchor.constraint(
                equalTo: view.widthAnchor,
                multiplier: 1
@@ -166,9 +154,7 @@ class ActionViewController: UIViewController {
                equalTo: view.centerXAnchor
            ).isActive = true
            
-           
 
-           
            doneButton.widthAnchor.constraint(
                equalTo: view.widthAnchor,
                multiplier: 4/7
@@ -186,8 +172,6 @@ class ActionViewController: UIViewController {
            doneButton.centerXAnchor.constraint(
                equalTo: view.centerXAnchor
            ).isActive = true
-           
-           
            
            
            pauseButton.widthAnchor.constraint(
@@ -208,8 +192,6 @@ class ActionViewController: UIViewController {
            ).isActive = true
            
            
-           
-           
            finishButton.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 3/5
@@ -227,9 +209,8 @@ class ActionViewController: UIViewController {
            ).isActive = true
     }
   
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard segue.identifier == "finish" else { return }
         let finishVC = segue.destination as! FinishViewController
         finishVC.indexPath = indexPath

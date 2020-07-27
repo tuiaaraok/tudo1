@@ -23,25 +23,25 @@ class ViewController: UIViewController {
     var taskText: String!
     var countOfTaskText: String!
     var actionIndex: Int!
-
     
    override func viewDidLoad() {
          super.viewDidLoad()
          actionIndex = glb
      
          if actionIndex == nil {
+            
             saveButton.isHidden = true
             countLabel.text = "Напишите количество:"
             taskLabel.text = "Напишите задание:"
              
          } else {
+            
              countLabel.text = "Редактировать количество:"
              taskLabel.text = "Редактировать задание:"
              addButtonOut.isHidden = true
              saveButton.isHidden = false
              taskTextField.text = tasksLists[actionIndex].task
              countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
-         
          }
     
     taskLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
      }
    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else {
             return false
@@ -72,8 +73,11 @@ class ViewController: UIViewController {
     
    
     @IBAction func addButton() {
-        guard Int(countOfTasksTextField.text!) != nil else{showAlert(title: "Ошибка", messge: "напишите число!"); return}
-        guard taskTextField.text?.isEmpty == false  else { showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
+        guard Int(countOfTasksTextField.text!) != nil else {
+            showAlert(title: "Ошибка", messge: "напишите число!"); return}
+        
+        guard taskTextField.text?.isEmpty == false  else {
+            showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
               
              let task = Answer()
               task.countOfTask = countOfTasksTextField.text!
@@ -93,13 +97,6 @@ class ViewController: UIViewController {
         )
     }
   
-    
-    
-    
-    
-    
-    
-    
     // MARK: - Constraints
     
     func createConstraints() {
@@ -124,7 +121,6 @@ class ViewController: UIViewController {
             ).isActive = true
         
         
-        
         taskTextField.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 4/5
@@ -144,8 +140,6 @@ class ViewController: UIViewController {
             equalTo: view.centerXAnchor
             ).isActive = true
                         
-                
-        
         
         countLabel.widthAnchor.constraint(
             equalTo: view.widthAnchor,
@@ -165,8 +159,6 @@ class ViewController: UIViewController {
         countLabel.centerXAnchor.constraint(
             equalTo: view.centerXAnchor
             ).isActive = true
-        
-        
         
         
         countOfTasksTextField.widthAnchor.constraint(
@@ -189,8 +181,6 @@ class ViewController: UIViewController {
             ).isActive = true
                                
         
-        
-        
         saveButton.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 1/3
@@ -211,8 +201,6 @@ class ViewController: UIViewController {
             ).isActive = true
         
         
-        
-        
         addButtonOut.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 1/3
@@ -231,12 +219,10 @@ class ViewController: UIViewController {
         addButtonOut.centerXAnchor.constraint(
             equalTo: view.centerXAnchor
             ).isActive = true
-        
     }
     
-    
-    
     // MARK: - Extentions
+    
 }
 extension ViewController {
     private func showAlert (title: String, messge: String, textField: UITextField? = nil) {

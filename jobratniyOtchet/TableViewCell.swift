@@ -27,8 +27,6 @@ class TableViewCell: UITableViewCell {
         createConstraints()
     }
 
-
-    
     func createConstraints() {
         
         strelkaImageView.widthAnchor.constraint(
@@ -71,9 +69,7 @@ class TableViewCell: UITableViewCell {
             constant: -2
         ).isActive = true
         
-        
-        
-        
+
         numberLabel.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
             multiplier: 4/30
@@ -93,9 +89,7 @@ class TableViewCell: UITableViewCell {
             constant: -10
         ).isActive = true
         
-        
-        
-        
+
         editButton.widthAnchor.constraint(
             equalTo: contentView.heightAnchor,
             multiplier: 5/10
@@ -118,6 +112,5 @@ class TableViewCell: UITableViewCell {
             equalTo: contentView.rightAnchor,
             constant: -16
         ).isActive = true
-        
     }
 }

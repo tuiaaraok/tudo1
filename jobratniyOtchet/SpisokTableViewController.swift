@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SpisokTableViewController: UITableViewController {
     let date = Date()
     let calendar = Calendar.current
@@ -22,21 +21,14 @@ class SpisokTableViewController: UITableViewController {
         tasksLists = realm.objects(Answer.self)
         getCurrentDay()
         print(date)
-   
-
     }
     
-
-    
-    
-    // MARK: - Table view data source
-
-   
    // сэгвэй назад
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
         tableView.reloadData()
          }
    
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasksLists.count
@@ -58,10 +50,10 @@ class SpisokTableViewController: UITableViewController {
         cell.editButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
                
             return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         appDelegate?.scheduleNotification(notificationType: "Local notification")
     }
 
@@ -69,19 +61,16 @@ class SpisokTableViewController: UITableViewController {
 
  // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {
+        
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let next:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! ViewController
         
         glb = indexPath.row
-     
 
         self.navigationController?.pushViewController(next, animated: true)
       
     }
     
-    
-
-    // delete func
     
  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
      
@@ -104,7 +93,6 @@ class SpisokTableViewController: UITableViewController {
        }
    }
     
-    
     func getCurrentDay () {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM, dd, yyyy"
@@ -113,9 +101,6 @@ class SpisokTableViewController: UITableViewController {
         
     }
     
-    
-   
-   
    // MARK: - Navigation
 
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -135,11 +120,6 @@ class SpisokTableViewController: UITableViewController {
             actionVC.indexPath = indexPath
                 }
            }
-   
        }
-   
     }
-        
-    
-    
-  
+
