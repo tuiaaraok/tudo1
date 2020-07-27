@@ -10,9 +10,6 @@ import UIKit
 
 class FinishViewController: UIViewController {
 
-    
-    
-    
     @IBOutlet var congratsLabel: UILabel!
     @IBOutlet var textLabel: UILabel!
     @IBOutlet var willDoButton: UIButton!
@@ -36,33 +33,30 @@ class FinishViewController: UIViewController {
       }()
        
     
-    
-    
-    
-    
     private func  setupNotificationObservers() {
-          NotificationCenter.default.addObserver(self, selector: #selector(handleEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+          NotificationCenter.default.addObserver(self,
+                                                 selector: #selector(handleEnterForeground),
+                                                 name: UIApplication.willEnterForegroundNotification,
+                                                 object: nil)
             }
             
     @objc private func handleEnterForeground() {
                 animatePulsatingLayer()
             }
 
-    
-    
-    
-    
-       
-
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: .zero,
+                                        radius: 100,
+                                        startAngle: 0,
+                                        endAngle: 2 * CGFloat.pi,
+                                        clockwise: true)
                 layer.path = circularPath.cgPath
                 layer.strokeColor = strokeColor.cgColor
                 layer.lineWidth = 25
                 layer.fillColor = fillColor.cgColor
                 layer.lineCap = CAShapeLayerLineCap.round
-        layer.position = view.center
+                layer.position = view.center
       
            return layer
        }
@@ -74,7 +68,6 @@ class FinishViewController: UIViewController {
         super.viewDidLoad()
         
         task = tasksLists[indexPath.row]
-      // print("\(task.overDo) vfvf")
         
         guard let countofTask = Int(task.countOfTask) else {return}
         persentage = Float(task.currentNumber) / Float(countofTask)
@@ -90,28 +83,18 @@ class FinishViewController: UIViewController {
     }
        
     
-    
-    
-    
-    
-    
-    
-       
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        
         setupNotificationObservers()
         setupCircleLayers()
         setupPersentageLabel()
-
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(50), execute: {
                self.beginCountOfPercent()
         })
-      
     }
-    
     
     
     private func setupPersentageLabel() {
@@ -119,7 +102,6 @@ class FinishViewController: UIViewController {
         persentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         persentageLabel.center = view.center
        }
-       
        
        
     private func setupCircleLayers() {
@@ -169,14 +151,9 @@ class FinishViewController: UIViewController {
         )
       
         animateCircle()
-             
     }
          
-       
 
-       
-    
-    
     fileprivate func animateCircle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
            
@@ -188,9 +165,6 @@ class FinishViewController: UIViewController {
     }
        
 
-    
-    
-    
     private func setText() {
         
         switch persentage * 100 {
@@ -221,8 +195,6 @@ class FinishViewController: UIViewController {
         
     }
     
-    
-    
 
        func createConstraints() {
            
@@ -246,8 +218,6 @@ class FinishViewController: UIViewController {
             ).isActive = true
    
         
-        
-        
         textLabel.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 4/5
@@ -267,9 +237,7 @@ class FinishViewController: UIViewController {
             equalTo: view.centerXAnchor
             ).isActive = true
 
-
-
-
+        
         willDoButton.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 4/5
@@ -290,8 +258,6 @@ class FinishViewController: UIViewController {
             ).isActive = true
 
 
-
-
         toMainButton.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 4/5
@@ -310,5 +276,5 @@ class FinishViewController: UIViewController {
         toMainButton.centerXAnchor.constraint(
             equalTo: view.centerXAnchor
             ).isActive = true
-}
+    }
 }

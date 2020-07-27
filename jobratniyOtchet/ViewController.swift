@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     @IBOutlet var taskTextField: UITextField!
     @IBOutlet var countOfTasksTextField: UITextField!
-    
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var addButtonOut: UIButton!
     @IBOutlet var taskLabel: UILabel!
@@ -54,22 +53,16 @@ class ViewController: UIViewController {
     createConstraints()
     
     taskTextField.delegate = self
-   
     
      }
    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let currentText = textField.text ?? ""
-        guard let stringRange = Range(range, in: currentText) else {
-            return false
-        }
+        guard let stringRange = Range(range, in: currentText) else { return false }
         let updateText = currentText.replacingCharacters(in: stringRange, with: string)
         return updateText.count<35
     }
-    
-    
-    
     
    
     @IBAction func addButton() {

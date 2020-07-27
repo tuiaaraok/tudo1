@@ -9,6 +9,7 @@
 import UIKit
 
 class SpisokTableViewController: UITableViewController {
+    
     let date = Date()
     let calendar = Calendar.current
     
@@ -58,7 +59,6 @@ class SpisokTableViewController: UITableViewController {
     }
 
     
-
  // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {
         
@@ -71,18 +71,17 @@ class SpisokTableViewController: UITableViewController {
       
     }
     
-    
- override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-     
-     let currentList = tasksLists[indexPath.row]
-     
-     let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in StorageManager.deleteList(currentList)
-         tableView.deleteRows(at: [indexPath], with: .automatic)
-     }
-     
-     return [deleteAction]
- }
-    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let currentList = tasksLists[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            StorageManager.deleteList(currentList)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeActions
+    }
 
 
    // сброс количества
@@ -115,7 +114,6 @@ class SpisokTableViewController: UITableViewController {
             } else {
                 actionVC.number = Int(cellText.countOfTask)! - cellText.currentNumber
             }
-            
             actionVC.currentNum = cellText.currentNumber
             actionVC.indexPath = indexPath
                 }
