@@ -103,6 +103,4 @@ class CountingLabel: UILabel {
         timer?.invalidate()
         timer = nil
     }
-
-
 }

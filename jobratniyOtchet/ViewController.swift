@@ -43,13 +43,6 @@ class ViewController: UIViewController {
              countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
          }
     
-    taskLabel.translatesAutoresizingMaskIntoConstraints = false
-    taskTextField.translatesAutoresizingMaskIntoConstraints = false
-    countLabel.translatesAutoresizingMaskIntoConstraints = false
-    countOfTasksTextField.translatesAutoresizingMaskIntoConstraints = false
-    saveButton.translatesAutoresizingMaskIntoConstraints = false
-    addButtonOut.translatesAutoresizingMaskIntoConstraints = false
-    
     createConstraints()
     
     taskTextField.delegate = self
@@ -89,10 +82,49 @@ class ViewController: UIViewController {
             newCount: countOfTasksTextField.text!
         )
     }
-  
+}
+
+
+// MARK: - Extentions
+extension ViewController {
+    private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: messge, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            textField?.text = nil
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
+extension ViewController: UITextFieldDelegate {
+    // скрытие клавиатуры по тапу в любом месте
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.taskTextField {
+               textField.resignFirstResponder()
+            self.countOfTasksTextField.becomeFirstResponder()
+        } 
+            //else скрыть клавиатуру
+        
+           return true
+       }
+}
+
+extension ViewController {
     // MARK: - Constraints
     
     func createConstraints() {
+        
+        taskLabel.translatesAutoresizingMaskIntoConstraints = false
+        taskTextField.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+        countOfTasksTextField.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        addButtonOut.translatesAutoresizingMaskIntoConstraints = false
         
         taskLabel.widthAnchor.constraint(
             equalTo: view.widthAnchor,
@@ -213,35 +245,4 @@ class ViewController: UIViewController {
             equalTo: view.centerXAnchor
             ).isActive = true
     }
-    
-    // MARK: - Extentions
-    
 }
-extension ViewController {
-    private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
-        let alert = UIAlertController(title: title, message: messge, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            textField?.text = nil
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-}
-extension ViewController: UITextFieldDelegate {
-    // скрытие клавиатуры по тапу в любом месте
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.taskTextField {
-               textField.resignFirstResponder()
-            self.countOfTasksTextField.becomeFirstResponder()
-        } 
-            //else скрыть клавиатуру
-        
-           return true
-       }
-}
-

@@ -14,9 +14,7 @@ class FinishViewController: UIViewController {
     @IBOutlet var textLabel: UILabel!
     @IBOutlet var willDoButton: UIButton!
     @IBOutlet var toMainButton: UIButton!
-    
- 
-    
+
     var indexPath: IndexPath!
     var shapeLayer: CAShapeLayer!
     var pulsatingLayer: CAShapeLayer!
@@ -32,7 +30,6 @@ class FinishViewController: UIViewController {
           return label
       }()
        
-    
     private func  setupNotificationObservers() {
           NotificationCenter.default.addObserver(self,
                                                  selector: #selector(handleEnterForeground),
@@ -60,9 +57,6 @@ class FinishViewController: UIViewController {
       
            return layer
        }
-       
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,17 +67,10 @@ class FinishViewController: UIViewController {
         persentage = Float(task.currentNumber) / Float(countofTask)
         print("task current num\(task.currentNumber)")
         
-        congratsLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        willDoButton.translatesAutoresizingMaskIntoConstraints = false
-        toMainButton.translatesAutoresizingMaskIntoConstraints = false
-        
         createConstraints()
         setText()
     }
        
-    
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
@@ -132,9 +119,6 @@ class FinishViewController: UIViewController {
         pulsatingLayer.add(animation, forKey: "pulsing")
     }
 
-       
-       
-
     private func beginCountOfPercent() {
         
         shapeLayer.strokeEnd = 0
@@ -153,7 +137,6 @@ class FinishViewController: UIViewController {
         animateCircle()
     }
          
-
     fileprivate func animateCircle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
            
@@ -195,8 +178,13 @@ class FinishViewController: UIViewController {
         
     }
     
-
        func createConstraints() {
+        
+        
+        congratsLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        willDoButton.translatesAutoresizingMaskIntoConstraints = false
+        toMainButton.translatesAutoresizingMaskIntoConstraints = false
            
         congratsLabel.widthAnchor.constraint(
             equalTo: view.widthAnchor,

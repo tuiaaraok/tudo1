@@ -19,15 +19,15 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mainLabel.translatesAutoresizingMaskIntoConstraints = false
-        numberLabel.translatesAutoresizingMaskIntoConstraints = false
-        strelkaImageView.translatesAutoresizingMaskIntoConstraints = false
-        editButton.translatesAutoresizingMaskIntoConstraints = false
-        
         createConstraints()
     }
 
     func createConstraints() {
+        
+        mainLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberLabel.translatesAutoresizingMaskIntoConstraints = false
+        strelkaImageView.translatesAutoresizingMaskIntoConstraints = false
+        editButton.translatesAutoresizingMaskIntoConstraints = false
         
         strelkaImageView.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
@@ -48,9 +48,7 @@ class TableViewCell: UITableViewCell {
             constant: 27
         ).isActive = true
         
-        
-        
-                    
+    
         mainLabel.heightAnchor.constraint(
             equalTo: contentView.heightAnchor
         ).isActive = true
