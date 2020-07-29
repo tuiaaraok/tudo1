@@ -18,9 +18,7 @@ class ActionViewController: UIViewController {
     @IBOutlet var pauseButton: UIButton!
     @IBOutlet var finishButton: UIButton!
 
-    
-    var task: String!
-    var number: Int!
+    var currentTask: Answer!
     var currentNum: Int!
     var actionNumber: Int!
     var indexPath: IndexPath!
@@ -29,18 +27,17 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        taskLabel.translatesAutoresizingMaskIntoConstraints = false
-        numberLabel.translatesAutoresizingMaskIntoConstraints = false
-        ostalosLabel.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        pauseButton.translatesAutoresizingMaskIntoConstraints = false
-        finishButton.translatesAutoresizingMaskIntoConstraints = false
-       
+        if Int(currentTask.countOfTask)! - currentTask.currentNumber < 0 {
+            actionNumber = 0
+        } else {
+            actionNumber = Int(currentTask.countOfTask)! - currentTask.currentNumber
+        }
+        currentNum = currentTask.currentNumber
+
         doneButton.layer.cornerRadius = doneButton.frame.width / 35
         finishButton.isHidden = true
         
-        taskLabel.text = task
-        actionNumber = number
+        taskLabel.text = currentTask.task
         numberLabel.text = String(actionNumber)
      
         createConstraints()
@@ -94,8 +91,21 @@ class ActionViewController: UIViewController {
         performSegue(withIdentifier: "finish", sender: nil)
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            guard segue.identifier == "finish" else { return }
+            let finishVC = segue.destination as! FinishViewController
+            finishVC.indexPath = indexPath
+    }
+    
     func createConstraints() {
+        
+        taskLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberLabel.translatesAutoresizingMaskIntoConstraints = false
+        ostalosLabel.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        pauseButton.translatesAutoresizingMaskIntoConstraints = false
+        finishButton.translatesAutoresizingMaskIntoConstraints = false
           
            numberLabel.widthAnchor.constraint(
                equalTo: view.widthAnchor,
@@ -208,11 +218,4 @@ class ActionViewController: UIViewController {
             equalTo: view.centerXAnchor
            ).isActive = true
     }
-  
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard segue.identifier == "finish" else { return }
-        let finishVC = segue.destination as! FinishViewController
-        finishVC.indexPath = indexPath
-}
 }

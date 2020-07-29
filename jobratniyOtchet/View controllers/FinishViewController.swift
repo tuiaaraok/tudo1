@@ -146,7 +146,6 @@ class FinishViewController: UIViewController {
            
         shapeLayer.add(basicAnimation, forKey: "urSoBasic")
     }
-       
 
     private func setText() {
         
@@ -175,11 +174,9 @@ class FinishViewController: UIViewController {
         default:
             break
         }
-        
     }
     
-       func createConstraints() {
-        
+    private func createConstraints() {
         
         congratsLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -205,12 +202,11 @@ class FinishViewController: UIViewController {
             equalTo: view.centerXAnchor
             ).isActive = true
    
-        
         textLabel.widthAnchor.constraint(
             equalTo: view.widthAnchor,
             multiplier: 4/5
             ).isActive = true
-
+        
         textLabel.heightAnchor.constraint(
             equalTo: view.heightAnchor,
             multiplier: 1/10

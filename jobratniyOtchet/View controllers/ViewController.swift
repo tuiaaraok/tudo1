@@ -8,10 +8,9 @@
 
 import UIKit
 import RealmSwift
-var glb: Int? = nil
+
 class ViewController: UIViewController {
 
-    
     @IBOutlet var taskTextField: UITextField!
     @IBOutlet var countOfTasksTextField: UITextField!
     @IBOutlet var saveButton: UIButton!
@@ -25,7 +24,6 @@ class ViewController: UIViewController {
     
    override func viewDidLoad() {
          super.viewDidLoad()
-         actionIndex = glb
      
          if actionIndex == nil {
             
@@ -46,7 +44,6 @@ class ViewController: UIViewController {
     createConstraints()
     
     taskTextField.delegate = self
-    
      }
    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -84,8 +81,8 @@ class ViewController: UIViewController {
     }
 }
 
-
 // MARK: - Extentions
+
 extension ViewController {
     private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: messge, preferredStyle: .alert)
@@ -96,6 +93,7 @@ extension ViewController {
         present(alert, animated: true)
     }
 }
+
 extension ViewController: UITextFieldDelegate {
     // скрытие клавиатуры по тапу в любом месте
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -109,7 +107,6 @@ extension ViewController: UITextFieldDelegate {
             self.countOfTasksTextField.becomeFirstResponder()
         } 
             //else скрыть клавиатуру
-        
            return true
        }
 }

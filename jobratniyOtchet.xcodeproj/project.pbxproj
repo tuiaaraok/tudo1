@@ -73,6 +73,55 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6301A5D124D18752009AEC72 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				631417DD245CAFB500950D5E /* SpisokTableViewController.swift */,
+				631417CB245C87D100950D5E /* ViewController.swift */,
+				631417DB245C8DF600950D5E /* ActionViewController.swift */,
+				63D2BF07248BF22F00C461F5 /* FinishViewController.swift */,
+				6349A04A24716F2E006E7320 /* TableViewCell.swift */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		6301A5D224D18777009AEC72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				631417DF245D666600950D5E /* DataManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6301A5D324D187AA009AEC72 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				631417C7245C87D100950D5E /* AppDelegate.swift */,
+				631417C9245C87D100950D5E /* SceneDelegate.swift */,
+				631417D0245C87D100950D5E /* Assets.xcassets */,
+				631417D5245C87D100950D5E /* Info.plist */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		6301A5D424D187D4009AEC72 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				631417CD245C87D100950D5E /* Main.storyboard */,
+				631417D2245C87D100950D5E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6301A5D524D18815009AEC72 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63F05ED424AB7B83003C4DFE /* CountingLabel.swift */,
+				63D2BF05248511DF00C461F5 /* StorageManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		631417BB245C87D100950D5E = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +143,11 @@
 		631417C6245C87D100950D5E /* jobratniyOtchet */ = {
 			isa = PBXGroup;
 			children = (
-				631417C7245C87D100950D5E /* AppDelegate.swift */,
-				631417C9245C87D100950D5E /* SceneDelegate.swift */,
-				631417DD245CAFB500950D5E /* SpisokTableViewController.swift */,
-				631417CB245C87D100950D5E /* ViewController.swift */,
-				631417DB245C8DF600950D5E /* ActionViewController.swift */,
-				63D2BF05248511DF00C461F5 /* StorageManager.swift */,
-				6349A04A24716F2E006E7320 /* TableViewCell.swift */,
-				631417DF245D666600950D5E /* DataManager.swift */,
-				63D2BF07248BF22F00C461F5 /* FinishViewController.swift */,
-				63F05ED424AB7B83003C4DFE /* CountingLabel.swift */,
-				631417CD245C87D100950D5E /* Main.storyboard */,
-				631417D0245C87D100950D5E /* Assets.xcassets */,
-				631417D2245C87D100950D5E /* LaunchScreen.storyboard */,
-				631417D5245C87D100950D5E /* Info.plist */,
+				6301A5D124D18752009AEC72 /* View controllers */,
+				6301A5D224D18777009AEC72 /* Models */,
+				6301A5D324D187AA009AEC72 /* Support files */,
+				6301A5D524D18815009AEC72 /* Helpers */,
+				6301A5D424D187D4009AEC72 /* Storyboards */,
 			);
 			path = jobratniyOtchet;
 			sourceTree = "<group>";
@@ -383,7 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4825WAP7SS;
-				INFOPLIST_FILE = jobratniyOtchet/Info.plist;
+				INFOPLIST_FILE = "jobratniyOtchet/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,7 +443,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4825WAP7SS;
-				INFOPLIST_FILE = jobratniyOtchet/Info.plist;
+				INFOPLIST_FILE = "jobratniyOtchet/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

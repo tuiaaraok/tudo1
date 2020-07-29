@@ -34,7 +34,6 @@ class SpisokTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasksLists.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
@@ -58,17 +57,14 @@ class SpisokTableViewController: UITableViewController {
         appDelegate?.scheduleNotification(notificationType: "Local notification")
     }
 
-    
  // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {
         
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let next:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! ViewController
-        
-        glb = indexPath.row
+        next.actionIndex = indexPath.row
 
         self.navigationController?.pushViewController(next, animated: true)
-      
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -83,7 +79,6 @@ class SpisokTableViewController: UITableViewController {
         return swipeActions
     }
 
-
    // сброс количества
    @IBAction func restartButtonPressed(_ sender: Any) {
        for i in tasksLists {
@@ -92,12 +87,11 @@ class SpisokTableViewController: UITableViewController {
        }
    }
     
-    func getCurrentDay () {
+    private func getCurrentDay () {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM, dd, yyyy"
         let str = formatter.string(from: Date())
         print(str)
-        
     }
     
    // MARK: - Navigation
@@ -105,16 +99,9 @@ class SpisokTableViewController: UITableViewController {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let indexPath = tableView.indexPathForSelectedRow {
         if segue.identifier == "start2" {
-            let cellText = tasksLists[indexPath.row]
+            let currentTask = tasksLists[indexPath.row]
             let actionVC = segue.destination as! ActionViewController
-            actionVC.task = cellText.task
-            
-            if Int(cellText.countOfTask)! - cellText.currentNumber < 0 {
-                actionVC.number = 0
-            } else {
-                actionVC.number = Int(cellText.countOfTask)! - cellText.currentNumber
-            }
-            actionVC.currentNum = cellText.currentNumber
+            actionVC.currentTask = currentTask
             actionVC.indexPath = indexPath
                 }
            }
