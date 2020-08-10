@@ -12,7 +12,6 @@ import RealmSwift
 let realm = try! Realm()
 class StorageManager {
     
-    // добавление нового задания
     static func saveTasksList ( _ tasksLists: Answer ) {
         try! realm.write {
             realm.add(tasksLists)
@@ -35,14 +34,12 @@ class StorageManager {
         }
     }
     
-    // сброс данных рестатом
     static func editRestart( _ tasksList: Answer) {
         try! realm.write {
             tasksList.currentNumber = 0
         }
     }
     
-    // удаление стрчки
     static func deleteList(_ tasksList: Answer) {
            
            try! realm.write {

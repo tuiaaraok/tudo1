@@ -29,34 +29,6 @@ class FinishViewController: UIViewController {
        label.textColor =  .white
           return label
       }()
-       
-    private func  setupNotificationObservers() {
-          NotificationCenter.default.addObserver(self,
-                                                 selector: #selector(handleEnterForeground),
-                                                 name: UIApplication.willEnterForegroundNotification,
-                                                 object: nil)
-            }
-            
-    @objc private func handleEnterForeground() {
-                animatePulsatingLayer()
-            }
-
-    private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
-        let layer = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: .zero,
-                                        radius: 100,
-                                        startAngle: 0,
-                                        endAngle: 2 * CGFloat.pi,
-                                        clockwise: true)
-                layer.path = circularPath.cgPath
-                layer.strokeColor = strokeColor.cgColor
-                layer.lineWidth = 25
-                layer.fillColor = fillColor.cgColor
-                layer.lineCap = CAShapeLayerLineCap.round
-                layer.position = view.center
-      
-           return layer
-       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,15 +55,44 @@ class FinishViewController: UIViewController {
         })
     }
     
+    private func  setupNotificationObservers() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+               }
+               
+    @objc private func handleEnterForeground() {
+                animatePulsatingLayer()
+    }
+
+    private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: .zero,
+                                        radius: 100,
+                                        startAngle: 0,
+                                        endAngle: 2 * CGFloat.pi,
+                                        clockwise: true)
+                layer.path = circularPath.cgPath
+                layer.strokeColor = strokeColor.cgColor
+                layer.lineWidth = 25
+                layer.fillColor = fillColor.cgColor
+                layer.lineCap = CAShapeLayerLineCap.round
+                layer.position = view.center
+         
+            return layer
+    }
     
     private func setupPersentageLabel() {
+        
         view.addSubview(persentageLabel)
         persentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         persentageLabel.center = view.center
-       }
-       
+    }
        
     private func setupCircleLayers() {
+        
         pulsatingLayer = createCircleShapeLayer(strokeColor: #colorLiteral(red: 0.4934810209, green: 0.4569445994, blue: 0.9211666127, alpha: 1), fillColor: .clear)
         view.layer.addSublayer(pulsatingLayer)
         animatePulsatingLayer()
@@ -104,7 +105,6 @@ class FinishViewController: UIViewController {
         shapeLayer.strokeEnd = 0
             
         view.layer.addSublayer(shapeLayer)
-        
     }
        
     private func animatePulsatingLayer () {
@@ -124,20 +124,18 @@ class FinishViewController: UIViewController {
         shapeLayer.strokeEnd = 0
 
         persentageLabel.text = "\(Int(persentage! * 100))%"
-        print(persentage!)
         shapeLayer.strokeEnd = CGFloat(persentage!)
-        persentageLabel.count(
-            from: 0,
-            to: persentage! * 100,
-            withDuration: 1,
-            andAnimationType: .easeIn,
-            andCounterType: .intType
-        )
+        persentageLabel.count(from: 0,
+                              to: persentage! * 100,
+                              withDuration: 1,
+                              andAnimationType: .easeIn,
+                              andCounterType: .intType)
       
         animateCircle()
     }
          
     fileprivate func animateCircle() {
+        
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
            
         basicAnimation.duration = 1

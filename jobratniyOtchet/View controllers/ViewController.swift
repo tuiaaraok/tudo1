@@ -56,6 +56,7 @@ class ViewController: UIViewController {
     
    
     @IBAction func addButton() {
+        
         guard Int(countOfTasksTextField.text!) != nil else {
             showAlert(title: "Ошибка", messge: "напишите число!"); return}
         
@@ -84,7 +85,9 @@ class ViewController: UIViewController {
 // MARK: - Extentions
 
 extension ViewController {
+    
     private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
+        
         let alert = UIAlertController(title: title, message: messge, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
             textField?.text = nil
@@ -97,23 +100,25 @@ extension ViewController {
 extension ViewController: UITextFieldDelegate {
     // скрытие клавиатуры по тапу в любом месте
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         if textField == self.taskTextField {
                textField.resignFirstResponder()
             self.countOfTasksTextField.becomeFirstResponder()
-        } 
-            //else скрыть клавиатуру
+        }
            return true
        }
 }
 
+ // MARK: - Constraints
+
 extension ViewController {
-    // MARK: - Constraints
-    
+   
     func createConstraints() {
         
         taskLabel.translatesAutoresizingMaskIntoConstraints = false

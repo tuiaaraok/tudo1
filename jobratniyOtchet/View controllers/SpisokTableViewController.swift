@@ -12,7 +12,6 @@ class SpisokTableViewController: UITableViewController {
     
     let date = Date()
     let calendar = Calendar.current
-    
     let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
  
     override func viewDidLoad() {
@@ -21,10 +20,8 @@ class SpisokTableViewController: UITableViewController {
         tableView.rowHeight = 52
         tasksLists = realm.objects(Answer.self)
         getCurrentDay()
-        print(date)
     }
     
-   // сэгвэй назад
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
         tableView.reloadData()
          }
@@ -51,6 +48,8 @@ class SpisokTableViewController: UITableViewController {
                
             return cell
     }
+    
+    // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -81,8 +80,8 @@ class SpisokTableViewController: UITableViewController {
 
    // сброс количества
    @IBAction func restartButtonPressed(_ sender: Any) {
-       for i in tasksLists {
-           StorageManager.editRestart(i)
+       for task in tasksLists {
+           StorageManager.editRestart(task)
            tableView.reloadData()
        }
    }
@@ -97,6 +96,7 @@ class SpisokTableViewController: UITableViewController {
    // MARK: - Navigation
 
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     if let indexPath = tableView.indexPathForSelectedRow {
         if segue.identifier == "start2" {
             let currentTask = tasksLists[indexPath.row]

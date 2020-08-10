@@ -41,7 +41,6 @@ class ActionViewController: UIViewController {
         numberLabel.text = String(actionNumber)
      
         createConstraints()
-       
     }
     
       @IBAction func unwindSegue1 (_ sender: UIStoryboardSegue) {
@@ -59,7 +58,6 @@ class ActionViewController: UIViewController {
         if actionNumber == 0 {
             StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: Int(tasksLists[indexPath.row].countOfTask)!, newOverDo: 0)
          performSegue(withIdentifier: "finish", sender: nil)
-          
         }
         
         if actionNumber < 0 {

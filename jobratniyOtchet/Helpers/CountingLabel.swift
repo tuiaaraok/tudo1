@@ -67,6 +67,7 @@ class CountingLabel: UILabel {
     }
     
     @objc func updateValue() {
+        
         let now = Date.timeIntervalSinceReferenceDate
         progress = progress + (now - lastUpdate)
         lastUpdate = now
@@ -80,6 +81,7 @@ class CountingLabel: UILabel {
     }
     
     func updateText(value: Float) {
+        
         switch counterType! {
         case .intType:
             self.text = "\(Int(value))%"
@@ -89,6 +91,7 @@ class CountingLabel: UILabel {
     }
     
     func updateCounter(counterValue: Float) -> Float {
+        
         switch counterAnimationType! {
         case .linear:
             return counterValue
@@ -100,6 +103,7 @@ class CountingLabel: UILabel {
     }
     
     func invalidateTimer() {
+        
         timer?.invalidate()
         timer = nil
     }
