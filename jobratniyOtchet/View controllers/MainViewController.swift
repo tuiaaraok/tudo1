@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpisokTableViewController: UITableViewController {
+class MainViewController: UITableViewController {
     
     let date = Date()
     let calendar = Calendar.current
@@ -19,12 +19,11 @@ class SpisokTableViewController: UITableViewController {
         
         tableView.rowHeight = 52
         tasksLists = realm.objects(Answer.self)
-        getCurrentDay()
     }
     
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
         tableView.reloadData()
-         }
+    }
    
     // MARK: - Table view data source
     
@@ -33,34 +32,24 @@ class SpisokTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
-      
-        cell.backgroundColor = #colorLiteral(red: 0.4690965603, green: 0.4316392344, blue: 0.8572700777, alpha: 1)
-       
-        let cellText = tasksLists[indexPath.row]
-        cell.mainLabel.text = cellText.task
-        cell.numberLabel.text = " \(cellText.currentNumber)/\(cellText.countOfTask)"
-             
-        overDoValue = 0
-              
-        cell.editButton.tag = indexPath.row
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
+        cell.configure(indexPath)
         cell.editButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
-               
-            return cell
+        
+        return cell
     }
     
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         appDelegate?.scheduleNotification(notificationType: "Local notification")
     }
 
- // это для перехода на редактирование
     @objc func btnaction(sender: UIButton) {
         
         let indexPath = IndexPath(row: sender.tag, section: 0)
-        let next:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! ViewController
+        let next:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
         next.actionIndex = indexPath.row
 
         self.navigationController?.pushViewController(next, animated: true)
@@ -79,19 +68,12 @@ class SpisokTableViewController: UITableViewController {
     }
 
    // сброс количества
-   @IBAction func restartButtonPressed(_ sender: Any) {
+   @IBAction func resetButtonPressed(_ sender: Any) {
        for task in tasksLists {
            StorageManager.editRestart(task)
            tableView.reloadData()
        }
    }
-    
-    private func getCurrentDay () {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM, dd, yyyy"
-        let str = formatter.string(from: Date())
-        print(str)
-    }
     
    // MARK: - Navigation
 

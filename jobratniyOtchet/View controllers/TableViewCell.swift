@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TableViewCell: UITableViewCell {
 
@@ -15,100 +16,17 @@ class TableViewCell: UITableViewCell {
     @IBOutlet var editButton: UIButton!
     @IBOutlet var strelkaImageView: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        createConstraints()
+        contentView.backgroundColor = #colorLiteral(red: 0.4690965603, green: 0.4316392344, blue: 0.8572700777, alpha: 1)
     }
-
-    func createConstraints() {
-        
-        mainLabel.translatesAutoresizingMaskIntoConstraints = false
-        numberLabel.translatesAutoresizingMaskIntoConstraints = false
-        strelkaImageView.translatesAutoresizingMaskIntoConstraints = false
-        editButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        strelkaImageView.widthAnchor.constraint(
-            equalTo: contentView.widthAnchor,
-            multiplier: 1/12
-        ).isActive = true
-
-        strelkaImageView.heightAnchor.constraint(
-            equalTo: contentView.heightAnchor,
-            multiplier: 2/3
-        ).isActive = true
-
-        strelkaImageView.centerYAnchor.constraint(
-            equalTo: contentView.centerYAnchor
-        ).isActive = true
-
-         strelkaImageView.centerXAnchor.constraint(
-            equalTo: contentView.leftAnchor,
-            constant: 27
-        ).isActive = true
-        
     
-        mainLabel.heightAnchor.constraint(
-            equalTo: contentView.heightAnchor
-        ).isActive = true
-                    
-        mainLabel.centerYAnchor.constraint(
-            equalTo: contentView.centerYAnchor
-        ).isActive = true
-                    
-        mainLabel.leftAnchor.constraint(
-            equalTo: strelkaImageView.rightAnchor,
-            constant: 10
-        ).isActive = true
+    func configure(_ indexPath: IndexPath) {
         
-        mainLabel.rightAnchor.constraint(
-            equalTo: numberLabel.leftAnchor,
-            constant: -2
-        ).isActive = true
-        
-
-        numberLabel.widthAnchor.constraint(
-            equalTo: contentView.widthAnchor,
-            multiplier: 4/30
-        ).isActive = true
-                    
-        numberLabel.heightAnchor.constraint(
-            equalTo: contentView.heightAnchor,
-            multiplier: 4/5
-        ).isActive = true
-                    
-        numberLabel.centerYAnchor.constraint(
-            equalTo: contentView.centerYAnchor
-        ).isActive = true
-        
-        numberLabel.rightAnchor.constraint(
-            equalTo: editButton.leftAnchor,
-            constant: -10
-        ).isActive = true
-        
-
-        editButton.widthAnchor.constraint(
-            equalTo: contentView.heightAnchor,
-            multiplier: 5/10
-        ).isActive = true
-
-        editButton.heightAnchor.constraint(
-            equalTo: contentView.heightAnchor,
-            multiplier: 4/10
-        ).isActive = true
-
-        editButton.centerYAnchor.constraint(
-            equalTo: contentView.centerYAnchor
-        ).isActive = true
-        
-        editButton.leftAnchor.constraint(
-            equalTo: numberLabel.rightAnchor,
-            constant: 3).isActive = true
-        
-        editButton.rightAnchor.constraint(
-            equalTo: contentView.rightAnchor,
-            constant: -16
-        ).isActive = true
+         let cellText = tasksLists[indexPath.row]
+        mainLabel.text = cellText.task
+        numberLabel.text = " \(cellText.currentNumber)/\(cellText.countOfTask)"
+        overDoValue = 0
+        editButton.tag = indexPath.row
     }
 }

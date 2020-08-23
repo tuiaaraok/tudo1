@@ -18,15 +18,12 @@ class StorageManager {
         }
     }
     
-    // изменение при паузе и оверду
     static func editList(_ tasksList: Answer, newCurrentNum: Int, newOverDo: Int ) {
         try! realm.write {
             tasksList.currentNumber = newCurrentNum
-         //   tasksList.overDo = tasksList.overDo + newOverDo
         }
     }
     
-    // редактирование
     static func editTaskAndCount(_ taskList: Answer, newTask: String, newCount: String) {
         try! realm.write{
             taskList.task = newTask
