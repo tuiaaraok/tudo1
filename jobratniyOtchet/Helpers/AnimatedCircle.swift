@@ -45,7 +45,7 @@ class AnimatedCircle {
     func setupPersentageLabel(_ view: UIView, _ persentageLabel: UILabel) {
            
            view.addSubview(persentageLabel)
-           persentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        persentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
            persentageLabel.center = view.center
     }
           

@@ -27,23 +27,6 @@ class EditViewController: UIViewController {
         setupScreen()
         taskTextField.delegate = self
     }
-    
-    private func setupScreen() {
-        
-        if actionIndex == nil {
-           saveButton.isHidden = true
-           countLabel.text = "Напишите количество:"
-           taskLabel.text = "Напишите задание:"
-            
-        } else {
-            countLabel.text = "Редактировать количество:"
-            taskLabel.text = "Редактировать задание:"
-            addButtonOut.isHidden = true
-            saveButton.isHidden = false
-            taskTextField.text = tasksLists[actionIndex].task
-            countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
-        }
-    }
    
     @IBAction func addButton() {
 
@@ -69,6 +52,23 @@ class EditViewController: UIViewController {
             newTask: taskTextField.text!,
             newCount: countOfTasksTextField.text!
         )
+    }
+    
+    private func setupScreen() {
+        
+        if actionIndex == nil {
+            saveButton.isHidden = true
+            countLabel.text = "Напишите количество:"
+            taskLabel.text = "Напишите задание:"
+               
+        } else {
+            countLabel.text = "Редактировать количество:"
+            taskLabel.text = "Редактировать задание:"
+            addButtonOut.isHidden = true
+            saveButton.isHidden = false
+            taskTextField.text = tasksLists[actionIndex].task
+            countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
+        }
     }
 }
 

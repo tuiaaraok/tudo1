@@ -21,9 +21,6 @@ class MainViewController: UITableViewController {
         tasksLists = realm.objects(Answer.self)
     }
     
-    @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
-        tableView.reloadData()
-    }
    
     // MARK: - Table view data source
     
@@ -45,15 +42,6 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate?.scheduleNotification(notificationType: "Local notification")
     }
-
-    @objc func btnaction(sender: UIButton) {
-        
-        let indexPath = IndexPath(row: sender.tag, section: 0)
-        let next:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
-        next.actionIndex = indexPath.row
-
-        self.navigationController?.pushViewController(next, animated: true)
-    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -66,14 +54,28 @@ class MainViewController: UITableViewController {
 
         return swipeActions
     }
+    
+    // MARK: - IBActions
 
-   // сброс количества
    @IBAction func resetButtonPressed(_ sender: Any) {
        for task in tasksLists {
            StorageManager.editRestart(task)
            tableView.reloadData()
        }
    }
+    
+    @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
+    
+    @objc func btnaction(sender: UIButton) {
+        
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let next:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
+        next.actionIndex = indexPath.row
+
+        self.navigationController?.pushViewController(next, animated: true)
+    }
     
    // MARK: - Navigation
 

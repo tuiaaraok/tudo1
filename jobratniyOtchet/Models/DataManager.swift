@@ -15,10 +15,10 @@ var overDoValue = 0
 var tasksLists: Results<Answer>!
 
 class Answer: Object {
-@objc dynamic var task = ""
-@objc dynamic var countOfTask = ""
-@objc dynamic var overDo = 0
-@objc dynamic var currentNumber = 0
+    @objc dynamic var task = ""
+    @objc dynamic var countOfTask = ""
+    @objc dynamic var overDo = 0
+    @objc dynamic var currentNumber = 0
 }
 
 

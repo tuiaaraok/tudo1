@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         notificationCenter.add(request) { (error) in
-            print(error?.localizedDescription)
+            print(error?.localizedDescription as Any)
         }
     }
 

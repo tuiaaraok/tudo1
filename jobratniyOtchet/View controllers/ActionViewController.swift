@@ -92,10 +92,10 @@ class ActionViewController: UIViewController {
      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
-            guard segue.identifier == "finish" else { return }
-            let finishVC = segue.destination as! FinishViewController
-            finishVC.indexPath = indexPath
+        
+        guard segue.identifier == "finish" else { return }
+        let finishVC = segue.destination as! FinishViewController
+        finishVC.indexPath = indexPath
     }
     
     // MARK: - Constraints
@@ -104,10 +104,17 @@ class ActionViewController: UIViewController {
         
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let currentHeight = self.view.frame.size.height
+
+        if currentHeight > 736 {
+          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 100).isActive = true
+          } else {
+          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 60).isActive = true
+          }
 
     doneButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
     doneButton.heightAnchor.constraint(equalToConstant: 37).isActive = true
-    doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 60).isActive = true
     doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
            
     pauseButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/5).isActive = true
