@@ -10,34 +10,22 @@ import Foundation
 import RealmSwift
 
 let realm = try! Realm()
+
 class StorageManager {
     
-    static func saveTasksList ( _ tasksLists: Answer ) {
+    static func saveTasksList ( _ tasksLists: Task ) {
         try! realm.write {
             realm.add(tasksLists)
         }
     }
     
-    static func editList(_ tasksList: Answer, newCurrentNum: Int, newOverDo: Int ) {
-        try! realm.write {
-            tasksList.currentNumber = newCurrentNum
-        }
-    }
-    
-    static func editTaskAndCount(_ taskList: Answer, newTask: String, newCount: String) {
-        try! realm.write{
-            taskList.task = newTask
-            taskList.countOfTask = newCount
-        }
-    }
-    
-    static func editRestart( _ tasksList: Answer) {
+    static func editRestart( _ tasksList: Task) {
         try! realm.write {
             tasksList.currentNumber = 0
         }
     }
     
-    static func deleteList(_ tasksList: Answer) {
+    static func deleteList(_ tasksList: Task) {
            
            try! realm.write {
                realm.delete(tasksList)

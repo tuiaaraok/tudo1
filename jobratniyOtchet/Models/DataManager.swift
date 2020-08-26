@@ -12,9 +12,7 @@ import RealmSwift
 
 var overDoValue = 0
 
-var tasksLists: Results<Answer>!
-
-class Answer: Object {
+class Task: Object {
     @objc dynamic var task = ""
     @objc dynamic var countOfTask = ""
     @objc dynamic var overDo = 0

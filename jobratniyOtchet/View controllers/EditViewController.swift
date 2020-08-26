@@ -20,6 +20,7 @@ class EditViewController: UIViewController {
     
 
     var actionIndex: Int!
+    var currentTask: Task!
     
    override func viewDidLoad() {
          super.viewDidLoad()
@@ -35,7 +36,7 @@ class EditViewController: UIViewController {
         guard taskTextField.text?.isEmpty == false  else {
             showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
               
-             let task = Answer()
+             let task = Task()
               task.countOfTask = countOfTasksTextField.text!
               task.task = taskTextField.text!
               task.currentNumber = 0
@@ -46,11 +47,12 @@ class EditViewController: UIViewController {
 
     @IBAction func save() {
       
-        StorageManager.editTaskAndCount(
-            tasksLists[actionIndex],
-            newTask: taskTextField.text!,
-            newCount: countOfTasksTextField.text!
-        )
+         if currentTask != nil {
+            try! realm.write {
+                currentTask?.countOfTask = countOfTasksTextField.text!
+                currentTask?.task = taskTextField.text!
+            }
+         }
     }
     
     private func setupScreen() {
@@ -65,8 +67,8 @@ class EditViewController: UIViewController {
             taskLabel.text = "Редактировать задание:"
             addButtonOut.isHidden = true
             saveButton.isHidden = false
-            taskTextField.text = tasksLists[actionIndex].task
-            countOfTasksTextField.text = tasksLists[actionIndex].countOfTask
+            taskTextField.text = currentTask.task
+            countOfTasksTextField.text = currentTask.countOfTask
         }
     }
 }

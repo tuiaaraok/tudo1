@@ -18,10 +18,9 @@ class ActionViewController: UIViewController {
     @IBOutlet var pauseButton: UIButton!
     @IBOutlet var finishButton: UIButton!
 
-    var currentTask: Answer!
+    var currentTask: Task!
     var currentNum: Int!
     var actionNumber: Int!
-    var indexPath: IndexPath!
     var actionPause = 0
     
     override func viewDidLoad() {
@@ -50,7 +49,11 @@ class ActionViewController: UIViewController {
         actionPause += 1
         
         if actionNumber == 0 {
-            StorageManager.editList(tasksLists[indexPath.row], newCurrentNum: Int(tasksLists[indexPath.row].countOfTask)!, newOverDo: 0)
+           try! realm.write {
+                guard let countOfTask = Int(currentTask.countOfTask) else { return }
+                currentTask.currentNumber = countOfTask
+                currentTask.overDo = 0
+            }
          performSegue(withIdentifier: "finish", sender: nil)
         }
         
@@ -66,19 +69,21 @@ class ActionViewController: UIViewController {
        
         currentNum += actionPause
         actionPause = 0
-        StorageManager.editList(tasksLists[indexPath.row],
-                                newCurrentNum: currentNum,
-                                newOverDo: 0)
+        try! realm.write {
+            currentTask.currentNumber = currentNum
+            currentTask.overDo = 0
+        }
                                          
          performSegue(withIdentifier: "finish", sender: nil)
     }
     
     @IBAction func pressFinish() {
       
-        currentNum = Int(tasksLists[indexPath.row].countOfTask)! + overDoValue
-        StorageManager.editList(tasksLists[indexPath.row],
-                                newCurrentNum: currentNum,
-                                newOverDo: overDoValue)
+        currentNum = Int(currentTask.countOfTask)! + overDoValue
+        try! realm.write {
+            currentTask.currentNumber = currentNum
+            currentTask.overDo = overDoValue
+        }
         
         performSegue(withIdentifier: "finish", sender: nil)
     }
@@ -95,7 +100,8 @@ class ActionViewController: UIViewController {
         
         guard segue.identifier == "finish" else { return }
         let finishVC = segue.destination as! FinishViewController
-        finishVC.indexPath = indexPath
+       
+        finishVC.currentTask = currentTask
     }
     
     // MARK: - Constraints

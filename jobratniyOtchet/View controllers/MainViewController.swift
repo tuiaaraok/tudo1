@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UITableViewController {
     
+
+    var tasksLists: Results<Task>!
     let date = Date()
     let calendar = Calendar.current
     let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
@@ -18,7 +21,7 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 52
-        tasksLists = realm.objects(Answer.self)
+        tasksLists = realm.objects(Task.self)
     }
     
    
@@ -31,7 +34,8 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
-        cell.configure(indexPath)
+        let task = tasksLists[indexPath.row]
+        cell.configure(indexPath, task: task)
         cell.editButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
         
         return cell
@@ -65,6 +69,7 @@ class MainViewController: UITableViewController {
    }
     
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
+
         tableView.reloadData()
     }
     
@@ -73,22 +78,21 @@ class MainViewController: UITableViewController {
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let next:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
         next.actionIndex = indexPath.row
+        next.currentTask = tasksLists[indexPath.row]
 
         self.navigationController?.pushViewController(next, animated: true)
     }
     
    // MARK: - Navigation
 
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    if let indexPath = tableView.indexPathForSelectedRow {
-        if segue.identifier == "start2" {
-            let currentTask = tasksLists[indexPath.row]
-            let actionVC = segue.destination as! ActionViewController
-            actionVC.currentTask = currentTask
-            actionVC.indexPath = indexPath
-                }
-           }
-       }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            if segue.identifier == "start2" {
+                let currentTask = tasksLists[indexPath.row]
+                let actionVC = segue.destination as! ActionViewController
+                actionVC.currentTask = currentTask
+            }
+        }
     }
+}
 

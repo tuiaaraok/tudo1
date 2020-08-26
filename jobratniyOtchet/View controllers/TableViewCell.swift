@@ -21,11 +21,10 @@ class TableViewCell: UITableViewCell {
         contentView.backgroundColor = #colorLiteral(red: 0.4690965603, green: 0.4316392344, blue: 0.8572700777, alpha: 1)
     }
     
-    func configure(_ indexPath: IndexPath) {
+    func configure(_ indexPath: IndexPath, task: Task) {
         
-         let cellText = tasksLists[indexPath.row]
-        mainLabel.text = cellText.task
-        numberLabel.text = " \(cellText.currentNumber)/\(cellText.countOfTask)"
+        mainLabel.text = task.task
+        numberLabel.text = " \(task.currentNumber)/\(task.countOfTask)"
         overDoValue = 0
         editButton.tag = indexPath.row
     }

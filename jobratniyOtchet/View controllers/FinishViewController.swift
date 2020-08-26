@@ -16,7 +16,7 @@ class FinishViewController: UIViewController {
     @IBOutlet var toMainButton: UIButton!
 
     var indexPath: IndexPath!
-    var task: Answer!
+    var currentTask: Task!
     private var persentage: Float!
     private var animatedCircle = AnimatedCircle()
     
@@ -32,10 +32,10 @@ class FinishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        task = tasksLists[indexPath.row]
+//        task = tasksLists[indexPath.row]
         
-        guard let countofTask = Int(task.countOfTask) else {return}
-        persentage = Float(task.currentNumber) / Float(countofTask)
+        guard let countofTask = Int(currentTask.countOfTask) else {return}
+        persentage = Float(currentTask.currentNumber) / Float(countofTask)
         
         createConstraints()
         animatedCircle.setText(congratsLabel: congratsLabel, textLabel: textLabel, persentage)
