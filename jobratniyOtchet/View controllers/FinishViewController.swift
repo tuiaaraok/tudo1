@@ -58,14 +58,20 @@ class FinishViewController: UIViewController {
         willDoButton.translatesAutoresizingMaskIntoConstraints = false
         toMainButton.translatesAutoresizingMaskIntoConstraints = false
            
-        willDoButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 4/5).isActive = true
-        willDoButton.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 1/10).isActive = true
-        willDoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -85).isActive = true
+        willDoButton.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                            multiplier: 4/5).isActive = true
+        willDoButton.heightAnchor.constraint(equalTo: view.heightAnchor,
+                                             multiplier: 1/10).isActive = true
+        willDoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                             constant: -85).isActive = true
         willDoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        toMainButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 4/5).isActive = true
-        toMainButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/10).isActive = true
-        toMainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        toMainButton.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                            multiplier: 4/5).isActive = true
+        toMainButton.heightAnchor.constraint(equalTo: view.heightAnchor,
+                                             multiplier: 1/10).isActive = true
+        toMainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                             constant: -40).isActive = true
         toMainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }

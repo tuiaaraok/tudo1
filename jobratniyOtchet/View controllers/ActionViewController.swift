@@ -108,18 +108,23 @@ class ActionViewController: UIViewController {
         let currentHeight = self.view.frame.size.height
 
         if currentHeight > 736 {
-          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 100).isActive = true
+          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor,
+                                              constant: 100).isActive = true
           } else {
-          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 60).isActive = true
-          }
-
-    doneButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-    doneButton.heightAnchor.constraint(equalToConstant: 37).isActive = true
-    doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+          doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor,
+                                              constant: 60).isActive = true
+        }
+        
+        doneButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: 37).isActive = true
+        doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
            
-    pauseButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/5).isActive = true
-    pauseButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/15).isActive = true
-    pauseButton.centerYAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 50).isActive = true
-    pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        pauseButton.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                           multiplier: 3/5).isActive = true
+        pauseButton.heightAnchor.constraint(equalTo: view.heightAnchor,
+                                            multiplier: 1/15).isActive = true
+        pauseButton.centerYAnchor.constraint(equalTo: doneButton.bottomAnchor,
+                                             constant: 50).isActive = true
+        pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }

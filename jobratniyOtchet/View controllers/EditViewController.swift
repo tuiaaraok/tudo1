@@ -18,8 +18,7 @@ class EditViewController: UIViewController {
     @IBOutlet var taskLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
     
-    var taskText: String!
-    var countOfTaskText: String!
+
     var actionIndex: Int!
     
    override func viewDidLoad() {

@@ -26,27 +26,27 @@ class AnimatedCircle {
     }
 
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor, _ view: UIView) -> CAShapeLayer {
-           let layer = CAShapeLayer()
-           let circularPath = UIBezierPath(arcCenter: .zero,
-                                           radius: 100,
-                                           startAngle: 0,
-                                           endAngle: 2 * CGFloat.pi,
-                                           clockwise: true)
-                   layer.path = circularPath.cgPath
-                   layer.strokeColor = strokeColor.cgColor
-                   layer.lineWidth = 25
-                   layer.fillColor = fillColor.cgColor
-                   layer.lineCap = CAShapeLayerLineCap.round
-                   layer.position = view.center
+        let layer = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: .zero,
+                                        radius: 100,
+                                        startAngle: 0,
+                                        endAngle: 2 * CGFloat.pi,
+                                        clockwise: true)
+        layer.path = circularPath.cgPath
+        layer.strokeColor = strokeColor.cgColor
+        layer.lineWidth = 25
+        layer.fillColor = fillColor.cgColor
+        layer.lineCap = CAShapeLayerLineCap.round
+        layer.position = view.center
             
         return layer
     }
        
     func setupPersentageLabel(_ view: UIView, _ persentageLabel: UILabel) {
-           
-           view.addSubview(persentageLabel)
+        
+        view.addSubview(persentageLabel)
         persentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-           persentageLabel.center = view.center
+        persentageLabel.center = view.center
     }
           
     func setupCircleLayers(_ view: UIView) {
@@ -66,6 +66,7 @@ class AnimatedCircle {
     }
           
     private  func animatePulsatingLayer () {
+        
         let animation = CABasicAnimation(keyPath: "transform.scale")
               
         animation.toValue = 1.2

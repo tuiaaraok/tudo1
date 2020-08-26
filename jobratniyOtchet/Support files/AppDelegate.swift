@@ -30,19 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
-//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-//      
-//    }
-    
-    
-    
     
     func applicationDidBecomeActive(_ application: UIApplication) {
      //   UIApplication.shared.applicationIconBadgeNumber = 0 //после каждого открытия приложения бэйдж уведомления будет обнуляться
     }
-    
-    
     
     func requestAutorezation() {  //запрашивает разрешение на отправку уведомлений
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
@@ -53,8 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
-    
     func getNotificationSettings() { // запрашивает настройки из центра управления приложения
         notificationCenter.getNotificationSettings { (settings) in
             print("notification settings: \(settings)")
@@ -63,18 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func scheduleNotification (notificationType: String) { // настраиваем уведомление
         let content = UNMutableNotificationContent()
-        
-
+    
         content.body = "Пора выполнить ежедневные задания!"
         content.sound = UNNotificationSound.default
    
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
         let identifire = "Local notification"
-        
         let request = UNNotificationRequest(identifier: identifire, content: content, trigger: trigger)
-        
         
         notificationCenter.add(request) { (error) in
             print(error?.localizedDescription as Any)
