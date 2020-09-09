@@ -6,7 +6,6 @@
 //  Copyright © 2020 Айсен Шишигин. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class AnimatedCircle {

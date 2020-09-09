@@ -15,7 +15,6 @@ class FinishViewController: UIViewController {
     @IBOutlet var willDoButton: UIButton!
     @IBOutlet var toMainButton: UIButton!
 
-    var indexPath: IndexPath!
     var currentTask: Task!
     private var persentage: Float!
     private var animatedCircle = AnimatedCircle()
@@ -31,8 +30,6 @@ class FinishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        task = tasksLists[indexPath.row]
         
         guard let countofTask = Int(currentTask.countOfTask) else {return}
         persentage = Float(currentTask.currentNumber) / Float(countofTask)

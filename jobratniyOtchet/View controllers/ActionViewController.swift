@@ -73,7 +73,6 @@ class ActionViewController: UIViewController {
             currentTask.currentNumber = currentNum
             currentTask.overDo = 0
         }
-                                         
          performSegue(withIdentifier: "finish", sender: nil)
     }
     
@@ -100,7 +99,6 @@ class ActionViewController: UIViewController {
         
         guard segue.identifier == "finish" else { return }
         let finishVC = segue.destination as! FinishViewController
-       
         finishVC.currentTask = currentTask
     }
     
@@ -116,7 +114,7 @@ class ActionViewController: UIViewController {
         if currentHeight > 736 {
           doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor,
                                               constant: 100).isActive = true
-          } else {
+        } else {
           doneButton.centerYAnchor.constraint(equalTo: numberLabel.bottomAnchor,
                                               constant: 60).isActive = true
         }

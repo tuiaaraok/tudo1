@@ -23,19 +23,19 @@ class CountingLabel: UILabel {
         case floatType
     }
 
-    var startNumber: Float = 0.0
-    var endNumber: Float = 0.0
+    private var startNumber: Float = 0.0
+    private var endNumber: Float = 0.0
     
-    var progress: TimeInterval!
-    var duration: TimeInterval!
-    var lastUpdate: TimeInterval!
+    private var progress: TimeInterval!
+    private var duration: TimeInterval!
+    private var lastUpdate: TimeInterval!
 
-    var timer: Timer?
+    private var timer: Timer?
     
-    var counterType: CounterType!
-    var counterAnimationType: CounterAnimationType!
+    private var counterType: CounterType!
+    private var counterAnimationType: CounterAnimationType!
     
-    var currentCounterValue: Float {
+    private var currentCounterValue: Float {
         if progress >= duration {
             return endNumber
         }
@@ -80,7 +80,7 @@ class CountingLabel: UILabel {
         updateText(value: currentCounterValue)
     }
     
-    func updateText(value: Float) {
+    private func updateText(value: Float) {
         
         switch counterType! {
         case .intType:
@@ -90,7 +90,7 @@ class CountingLabel: UILabel {
         }
     }
     
-    func updateCounter(counterValue: Float) -> Float {
+    private func updateCounter(counterValue: Float) -> Float {
         
         switch counterAnimationType! {
         case .linear:
@@ -102,7 +102,7 @@ class CountingLabel: UILabel {
         }
     }
     
-    func invalidateTimer() {
+    private func invalidateTimer() {
         
         timer?.invalidate()
         timer = nil

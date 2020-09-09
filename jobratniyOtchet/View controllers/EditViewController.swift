@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class EditViewController: UIViewController {
 
@@ -18,8 +17,6 @@ class EditViewController: UIViewController {
     @IBOutlet var taskLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
     
-
-    var actionIndex: Int!
     var currentTask: Task!
     
    override func viewDidLoad() {
@@ -28,8 +25,8 @@ class EditViewController: UIViewController {
         taskTextField.delegate = self
     }
    
-    @IBAction func addButton() {
-
+    @IBAction func addButtonPressed() {
+        
         guard Int(countOfTasksTextField.text!) != nil else {
             showAlert(title: "Ошибка", messge: "напишите число!"); return}
         
@@ -45,7 +42,7 @@ class EditViewController: UIViewController {
               StorageManager.saveTasksList(task)
     }
 
-    @IBAction func save() {
+    @IBAction func saveButtonPresssed() {
       
          if currentTask != nil {
             try! realm.write {
@@ -57,7 +54,7 @@ class EditViewController: UIViewController {
     
     private func setupScreen() {
         
-        if actionIndex == nil {
+        if currentTask == nil {
             saveButton.isHidden = true
             countLabel.text = "Напишите количество:"
             taskLabel.text = "Напишите задание:"

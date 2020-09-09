@@ -11,10 +11,7 @@ import RealmSwift
 
 class MainViewController: UITableViewController {
     
-
     var tasksLists: Results<Task>!
-    let date = Date()
-    let calendar = Calendar.current
     let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
  
     override func viewDidLoad() {
@@ -24,7 +21,6 @@ class MainViewController: UITableViewController {
         tasksLists = realm.objects(Task.self)
     }
     
-   
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,11 +72,10 @@ class MainViewController: UITableViewController {
     @objc func btnaction(sender: UIButton) {
         
         let indexPath = IndexPath(row: sender.tag, section: 0)
-        let next:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
-        next.actionIndex = indexPath.row
-        next.currentTask = tasksLists[indexPath.row]
+        let editVC:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
+        editVC.currentTask = tasksLists[indexPath.row]
 
-        self.navigationController?.pushViewController(next, animated: true)
+        self.navigationController?.pushViewController(editVC, animated: true)
     }
     
    // MARK: - Navigation
