@@ -13,8 +13,7 @@ class MainViewController: UITableViewController {
     
 
     var tasksLists: Results<Task>!
-    let date = Date()
-    let calendar = Calendar.current
+    let refreshManager = RefreshManager()
     let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
  
     override func viewDidLoad() {
@@ -22,6 +21,7 @@ class MainViewController: UITableViewController {
         
         tableView.rowHeight = 52
         tasksLists = realm.objects(Task.self)
+        refreshManager.loadDataIfNeeded(tasks: tasksLists, tableView: tableView)
     }
     
    
