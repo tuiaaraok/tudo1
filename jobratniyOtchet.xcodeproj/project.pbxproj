@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630BEDF025160E2700E13FC8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BEDEF25160E2700E13FC8 /* Task.swift */; };
 		631417C8245C87D100950D5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417C7245C87D100950D5E /* AppDelegate.swift */; };
 		631417CA245C87D100950D5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417C9245C87D100950D5E /* SceneDelegate.swift */; };
 		631417CC245C87D100950D5E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417CB245C87D100950D5E /* EditViewController.swift */; };
@@ -15,7 +16,6 @@
 		631417D4245C87D100950D5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631417D2245C87D100950D5E /* LaunchScreen.storyboard */; };
 		631417DC245C8DF600950D5E /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417DB245C8DF600950D5E /* ActionViewController.swift */; };
 		631417DE245CAFB500950D5E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417DD245CAFB500950D5E /* MainViewController.swift */; };
-		631417E0245D666600950D5E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417DF245D666600950D5E /* DataManager.swift */; };
 		632415202513806800017C97 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324151F2513806800017C97 /* RefreshManager.swift */; };
 		6349A04B24716F2E006E7320 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349A04A24716F2E006E7320 /* TableViewCell.swift */; };
 		63CEBA5624F250D200882B38 /* AnimatedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA5524F250D200882B38 /* AnimatedCircle.swift */; };
@@ -27,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		25FD116437FB985E9992C6C5 /* Pods-jobratniyOtchet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobratniyOtchet.release.xcconfig"; path = "Target Support Files/Pods-jobratniyOtchet/Pods-jobratniyOtchet.release.xcconfig"; sourceTree = "<group>"; };
+		630BEDEF25160E2700E13FC8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		631417C4245C87D100950D5E /* TUDO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUDO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631417C7245C87D100950D5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631417C9245C87D100950D5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		631417D5245C87D100950D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631417DB245C8DF600950D5E /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		631417DD245CAFB500950D5E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		631417DF245D666600950D5E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		6324151F2513806800017C97 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
 		6349A04A24716F2E006E7320 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		63CEBA5524F250D200882B38 /* AnimatedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCircle.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		6301A5D224D18777009AEC72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				631417DF245D666600950D5E /* Task.swift */,
+				630BEDEF25160E2700E13FC8 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 				6349A04B24716F2E006E7320 /* TableViewCell.swift in Sources */,
 				63D2BF08248BF22F00C461F5 /* FinishViewController.swift in Sources */,
 				63CEBA5624F250D200882B38 /* AnimatedCircle.swift in Sources */,
-				631417E0245D666600950D5E /* Task.swift in Sources */,
 				63D2BF06248511DF00C461F5 /* StorageManager.swift in Sources */,
 				63F05ED524AB7B83003C4DFE /* CountingLabel.swift in Sources */,
 				631417C8245C87D100950D5E /* AppDelegate.swift in Sources */,
+				630BEDF025160E2700E13FC8 /* Task.swift in Sources */,
 				631417DC245C8DF600950D5E /* ActionViewController.swift in Sources */,
 				632415202513806800017C97 /* RefreshManager.swift in Sources */,
 				631417CA245C87D100950D5E /* SceneDelegate.swift in Sources */,
