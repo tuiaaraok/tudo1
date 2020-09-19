@@ -2,11 +2,9 @@
 //  RefreshManager.swift
 //  jobratniyOtchet
 //
-//  Created by Айсен Шишигин on 17/09/2020.
+//  Created by Айсен Шишигин on 19/09/2020.
 //  Copyright © 2020 Айсен Шишигин. All rights reserved.
 //
-
-import Foundation
 
 import UIKit
 import RealmSwift
