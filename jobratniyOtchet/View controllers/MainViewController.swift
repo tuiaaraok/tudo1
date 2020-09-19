@@ -13,12 +13,14 @@ class MainViewController: UITableViewController {
     
     var tasksLists: Results<Task>!
     let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
+    let refreshManager = RefreshManager()
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 52
         tasksLists = realm.objects(Task.self)
+        refreshManager.loadDataIfNeeded(tasks: tasksLists, tableView: tableView)
     }
     
     // MARK: - Table view data source
