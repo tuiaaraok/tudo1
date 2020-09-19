@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		630BEDF025160E2700E13FC8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BEDEF25160E2700E13FC8 /* Task.swift */; };
-		630BEDF22516130800E13FC8 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630BEDF12516130800E13FC8 /* RefreshManager.swift */; };
 		631417C8245C87D100950D5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417C7245C87D100950D5E /* AppDelegate.swift */; };
 		631417CA245C87D100950D5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417C9245C87D100950D5E /* SceneDelegate.swift */; };
 		631417CC245C87D100950D5E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631417CB245C87D100950D5E /* EditViewController.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		25FD116437FB985E9992C6C5 /* Pods-jobratniyOtchet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobratniyOtchet.release.xcconfig"; path = "Target Support Files/Pods-jobratniyOtchet/Pods-jobratniyOtchet.release.xcconfig"; sourceTree = "<group>"; };
 		630BEDEF25160E2700E13FC8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		630BEDF12516130800E13FC8 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
 		631417C4245C87D100950D5E /* TUDO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUDO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631417C7245C87D100950D5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631417C9245C87D100950D5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				63F05ED424AB7B83003C4DFE /* CountingLabel.swift */,
 				63CEBA5524F250D200882B38 /* AnimatedCircle.swift */,
 				63D2BF05248511DF00C461F5 /* StorageManager.swift */,
-				630BEDF12516130800E13FC8 /* RefreshManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				631417C8245C87D100950D5E /* AppDelegate.swift in Sources */,
 				630BEDF025160E2700E13FC8 /* Task.swift in Sources */,
 				631417DC245C8DF600950D5E /* ActionViewController.swift in Sources */,
-				630BEDF22516130800E13FC8 /* RefreshManager.swift in Sources */,
 				631417CA245C87D100950D5E /* SceneDelegate.swift in Sources */,
 				631417DE245CAFB500950D5E /* MainViewController.swift in Sources */,
 			);
