@@ -33,23 +33,23 @@ class EditViewController: UIViewController {
         guard taskTextField.text?.isEmpty == false  else {
             showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
               
-             let task = Task()
-              task.countOfTask = countOfTasksTextField.text!
-              task.task = taskTextField.text!
-              task.currentNumber = 0
-              task.overDo = 0
+        let task = Task()
+        task.countOfTask = countOfTasksTextField.text!
+        task.task = taskTextField.text!
+        task.currentNumber = 0
+        task.overDo = 0
               
-              StorageManager.saveTasksList(task)
+        StorageManager.saveTasksList(task)
     }
 
     @IBAction func saveButtonPresssed() {
       
-         if currentTask != nil {
+        if currentTask != nil {
             try! realm.write {
                 currentTask?.countOfTask = countOfTasksTextField.text!
                 currentTask?.task = taskTextField.text!
             }
-         }
+        }
     }
     
     private func setupScreen() {

@@ -12,7 +12,7 @@ import RealmSwift
 class MainViewController: UITableViewController {
     
     var tasksLists: Results<Task>!
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate // создаем делегат для выполнения уведомлений
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     let refreshManager = RefreshManager()
  
     override func viewDidLoad() {

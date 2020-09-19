@@ -29,9 +29,7 @@ class CountingLabel: UILabel {
     private var progress: TimeInterval!
     private var duration: TimeInterval!
     private var lastUpdate: TimeInterval!
-
     private var timer: Timer?
-    
     private var counterType: CounterType!
     private var counterAnimationType: CounterAnimationType!
     
