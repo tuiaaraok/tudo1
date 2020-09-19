@@ -12,9 +12,8 @@ import RealmSwift
 class MainViewController: UITableViewController {
     
     var tasksLists: Results<Task>!
-    let refreshMAnager = RefreshManager()
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     let refreshManager = RefreshManager()
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
  
     override func viewDidLoad() {
         super.viewDidLoad()
