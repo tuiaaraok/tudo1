@@ -27,11 +27,13 @@ class EditViewController: UIViewController {
    
     @IBAction func addButtonPressed() {
         
-        guard Int(countOfTasksTextField.text!) != nil else {
-            showAlert(title: "Ошибка", messge: "напишите число!"); return}
+        guard let countOfTask = countOfTasksTextField.text else { return }
+        guard Int(countOfTask) != nil else {
+            showAlert(title: "Ошибка", message: "напишите число!"); return}
         
-        guard taskTextField.text?.isEmpty == false  else {
-            showAlert(title: "Ошибка!", messge: "Напишите задание!"); return }
+        guard let taskText = taskTextField.text else { return }
+        guard taskText.isEmpty == false  else {
+            showAlert(title: "Ошибка!", message: "Напишите задание!"); return }
               
         let task = Task()
         task.countOfTask = countOfTasksTextField.text!
@@ -74,9 +76,9 @@ class EditViewController: UIViewController {
 
 extension EditViewController {
     
-    private func showAlert (title: String, messge: String, textField: UITextField? = nil) {
+    private func showAlert (title: String, message: String, textField: UITextField? = nil) {
         
-        let alert = UIAlertController(title: title, message: messge, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
             textField?.text = nil
         }

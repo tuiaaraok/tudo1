@@ -26,10 +26,12 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        if Int(currentTask.countOfTask)! - currentTask.currentNumber < 0 {
+        guard let stringCountOfTask = currentTask?.countOfTask else { return }
+        guard let countOfTask = Int(stringCountOfTask) else { return }
+        if countOfTask - currentTask.currentNumber < 0 {
             actionNumber = 0
         } else {
-            actionNumber = Int(currentTask.countOfTask)! - currentTask.currentNumber
+            actionNumber = countOfTask - currentTask.currentNumber
         }
         currentNum = currentTask.currentNumber
 
@@ -77,13 +79,12 @@ class ActionViewController: UIViewController {
     }
     
     @IBAction func pressFinish() {
-      
-        currentNum = Int(currentTask.countOfTask)! + overDoValue
+        guard let countOfTask = Int(currentTask.countOfTask) else { return }
+        currentNum = countOfTask + overDoValue
         try! realm.write {
             currentTask.currentNumber = currentNum
             currentTask.overDo = overDoValue
         }
-        
         performSegue(withIdentifier: "finish", sender: nil)
     }
     
@@ -98,7 +99,7 @@ class ActionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "finish" else { return }
-        let finishVC = segue.destination as! FinishViewController
+        guard let finishVC = segue.destination as? FinishViewController else { return }
         finishVC.currentTask = currentTask
     }
     

@@ -11,10 +11,10 @@ import RealmSwift
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet var mainLabel: UILabel!
-    @IBOutlet var numberLabel: UILabel!
+    @IBOutlet private var mainLabel: UILabel!
+    @IBOutlet private var numberLabel: UILabel!
     @IBOutlet var editButton: UIButton!
-    @IBOutlet var strelkaImageView: UIImageView!
+    @IBOutlet private var strelkaImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

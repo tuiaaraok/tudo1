@@ -31,7 +31,8 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! TableViewCell
+        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as? TableViewCell
+        guard let cell = tableViewCell else { return UITableViewCell() }
         let task = tasksLists[indexPath.row]
         cell.configure(indexPath, task: task)
         cell.editButton.addTarget(self, action: #selector(btnaction), for: .touchUpInside)
@@ -67,17 +68,17 @@ class MainViewController: UITableViewController {
    }
     
     @IBAction func unwindSegue (_ sender: UIStoryboardSegue) {
-
         tableView.reloadData()
     }
     
     @objc func btnaction(sender: UIButton) {
         
         let indexPath = IndexPath(row: sender.tag, section: 0)
-        let editVC:EditViewController = self.storyboard?.instantiateViewController(withIdentifier: "second") as! EditViewController
-        editVC.currentTask = tasksLists[indexPath.row]
-
-        self.navigationController?.pushViewController(editVC, animated: true)
+        let editVC = self.storyboard?.instantiateViewController(withIdentifier: "second") as? EditViewController
+        if let editVC = editVC {
+            editVC.currentTask = tasksLists[indexPath.row]
+            self.navigationController?.pushViewController(editVC, animated: true)
+        }
     }
     
    // MARK: - Navigation
@@ -86,7 +87,7 @@ class MainViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             if segue.identifier == "start2" {
                 let currentTask = tasksLists[indexPath.row]
-                let actionVC = segue.destination as! ActionViewController
+                guard let actionVC = segue.destination as? ActionViewController else { return }
                 actionVC.currentTask = currentTask
             }
         }
