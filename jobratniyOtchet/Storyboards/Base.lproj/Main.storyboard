@@ -135,8 +135,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="rw2-jH-nMS"/>
-                                    <segue destination="XQR-w4-g2E" kind="unwind" unwindAction="unwindSegue:" id="36L-dU-Od0"/>
+                                    <action selector="addButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="qCr-dj-oef"/>
+                                    <segue destination="XQR-w4-g2E" kind="unwind" unwindAction="unwindSegue:" id="Ajg-Xl-7aN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GIN-t1-aag">
@@ -147,7 +147,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="UD2-kN-hJn"/>
+                                    <action selector="saveButtonPresssed" destination="BYZ-38-t0r" eventType="touchUpInside" id="NlM-ss-Mz7"/>
                                     <segue destination="XQR-w4-g2E" kind="unwind" unwindAction="unwindSegue:" id="yqm-xW-AEm"/>
                                 </connections>
                             </button>
@@ -170,10 +170,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="tKz-Vk-fNq"/>
                     <connections>
-                        <outlet property="addButtonOut" destination="Rr9-Vx-kso" id="d5k-be-XYY"/>
+                        <outlet property="addButtonOut" destination="Rr9-Vx-kso" id="z2d-vu-jNx"/>
                         <outlet property="countLabel" destination="8oj-6P-UHn" id="GKr-Fk-HJS"/>
                         <outlet property="countOfTasksTextField" destination="FTA-bI-tLd" id="QtS-aB-sPV"/>
-                        <outlet property="saveButton" destination="GIN-t1-aag" id="9iw-za-hLt"/>
+                        <outlet property="saveButton" destination="GIN-t1-aag" id="ePS-jb-Ji0"/>
                         <outlet property="taskLabel" destination="4OQ-lZ-5Nx" id="klD-ys-neD"/>
                         <outlet property="taskTextField" destination="UjP-hQ-c1S" id="TKL-Md-aLQ"/>
                     </connections>
